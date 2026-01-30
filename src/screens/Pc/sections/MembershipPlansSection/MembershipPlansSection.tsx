@@ -92,43 +92,29 @@ export const MembershipPlansSection = (): JSX.Element => {
         </div>
 
         <div className="inline-flex items-center gap-4 relative flex-[0_0_auto]">
-          <div
-            className="inline-flex items-end relative flex-[0_0_auto]"
-            aria-hidden="true"
-          >
-            <img
-              className="relative w-[22.41px] h-[28.79px]"
-              alt=""
-              src="https://c.animaapp.com/h73j2KJP/img/line-2-2.svg"
-            />
-
-            <img
-              className="relative w-[23.73px] h-[47.25px] mt-[-1.25px] mr-[-2.73px] -ml-2.5"
-              alt=""
-              src="https://c.animaapp.com/h73j2KJP/img/line-1-2.svg"
-            />
-          </div>
+          {/* 左側の装飾（入会するの斜線） */}
+          <img
+            src="/img/Frame4.png"
+            alt=""
+            className="flex-shrink-0 w-7 h-12 object-contain"
+            width={28}
+            height={48}
+            aria-hidden={true}
+          />
 
           <p className="w-fit mt-[-1.00px] font-black text-main text-[50px] text-center leading-[50px] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
             入会する
           </p>
 
-          <div
-            className="inline-flex items-end relative flex-[0_0_auto] rotate-180"
-            aria-hidden="true"
-          >
-            <img
-              className="-rotate-180 relative w-[22.41px] h-[28.79px]"
-              alt=""
-              src="https://c.animaapp.com/h73j2KJP/img/line-2-3.svg"
-            />
-
-            <img
-              className="mb-[-1.25px] -rotate-180 relative w-[23.73px] h-[47.25px] mr-[-2.73px] -ml-2.5"
-              alt=""
-              src="https://c.animaapp.com/h73j2KJP/img/line-1-3.svg"
-            />
-          </div>
+          {/* 右側の装飾（デスクトップの Frame 5.svg） */}
+          <img
+            src="/img/Frame5.svg"
+            alt=""
+            className="flex-shrink-0 w-7 h-12 object-contain"
+            width={28}
+            height={48}
+            aria-hidden={true}
+          />
         </div>
       </header>
 
@@ -315,7 +301,7 @@ export const MembershipPlansSection = (): JSX.Element => {
 
       <div
         className="flex flex-col w-[76px] items-start gap-16 absolute top-16 left-[1344px]"
-        aria-hidden="true"
+        aria-hidden={true}
       >
         <div className="relative self-stretch w-full h-[676.18px]">
           {decorativeIcons.map((icon, index) => (
@@ -344,7 +330,7 @@ export const MembershipPlansSection = (): JSX.Element => {
 
       <div
         className="flex flex-col w-[73px] items-start gap-16 absolute top-16 left-5"
-        aria-hidden="true"
+        aria-hidden={true}
       >
         <div className="relative self-stretch w-full h-[673.42px] bg-[url(https://c.animaapp.com/h73j2KJP/img/group-13-4.png)] bg-[100%_100%]" />
 
