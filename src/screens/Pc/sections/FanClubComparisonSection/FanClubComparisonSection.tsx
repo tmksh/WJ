@@ -248,7 +248,7 @@ export const FanClubComparisonSection = (): JSX.Element => {
                       <span
                         className="w-fit mt-[-1.00px] font-bold text-text text-xl text-center leading-[24.0px] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]"
                         style={{
-                          whiteSpace: cell.subtitle ? "nowrap" : "pre-line",
+                          whiteSpace: (cell.subtitle && !cell.title?.includes("\n")) ? "nowrap" : "pre-line",
                         }}
                       >
                         {cell.title}

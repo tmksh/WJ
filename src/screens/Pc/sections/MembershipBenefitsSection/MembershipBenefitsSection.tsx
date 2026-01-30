@@ -114,19 +114,15 @@ export const MembershipBenefitsSection = (): JSX.Element => {
           </p>
 
           <div
-            className="inline-flex items-end relative flex-[0_0_auto] rotate-180"
+            className="inline-flex items-end relative flex-[0_0_auto]"
             aria-hidden="true"
           >
             <img
-              className="-rotate-180 relative w-[22.41px] h-[28.79px]"
+              src="/img/Frame5-decor.png"
               alt=""
-              src="https://c.animaapp.com/h73j2KJP/img/line-2-1.svg"
-            />
-
-            <img
-              className="mb-[-1.25px] -rotate-180 relative w-[23.73px] h-[47.25px] mr-[-2.73px] -ml-2.5"
-              alt=""
-              src="https://c.animaapp.com/h73j2KJP/img/line-1-1.svg"
+              className="flex-shrink-0 w-[33px] h-[46px] object-contain"
+              width={33}
+              height={46}
             />
           </div>
         </div>
@@ -175,15 +171,15 @@ export const MembershipBenefitsSection = (): JSX.Element => {
         </div>
 
         <div className="flex items-start gap-10 relative self-stretch w-full flex-[0_0_auto]">
-          <article className="flex flex-col w-[464px] items-center gap-6 pt-0 pb-6 px-0 relative bg-grey-1 rounded-[20px_20px_0px_0px] border-4 border-solid border-main">
-            <div className="flex items-center justify-center gap-2.5 p-4 relative self-stretch w-full flex-[0_0_auto] bg-main rounded-[20px_20px_0px_0px]">
+          <article className="flex flex-col w-[464px] items-center gap-6 pt-0 pb-6 px-0 relative overflow-hidden bg-grey-1 rounded-[20px_20px_0px_0px] border-4 border-solid border-main">
+            <div className="flex items-center justify-center gap-2.5 p-4 relative self-stretch w-full flex-[0_0_auto] bg-main rounded-[16px_16px_0px_0px]">
               <h3 className="w-fit mt-[-1.00px] font-extrabold text-white text-[32px] text-center leading-[38.4px] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
                 アプリファンクラブ
               </h3>
             </div>
 
             <div className="flex flex-col w-[396px] items-start gap-6 relative flex-[0_0_auto]">
-              <figure className="flex flex-col w-[396px] h-[264px] items-start justify-end gap-2.5 relative overflow-hidden bg-grey-1">
+              <figure className="flex flex-col w-[396px] h-[264px] items-start justify-end gap-2.5 relative overflow-hidden rounded-[20px_20px_0px_0px] bg-grey-1">
                 <img
                   src="/img/web-fanclub-pc@2x.png"
                   alt="アプリファンクラブの様子"

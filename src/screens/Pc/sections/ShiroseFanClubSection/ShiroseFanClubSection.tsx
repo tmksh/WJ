@@ -13,11 +13,11 @@ export const ShiroseFanClubSection = (): JSX.Element => {
         </div>
       </header>
 
-      <article className="flex flex-col w-[968px] h-[588px] items-start gap-2.5 p-2 relative bg-black-000 border-8 border-solid border-transparent [border-image:linear-gradient(180deg,rgba(176,123,11,1)_0%,rgba(255,230,145,1)_53%,rgba(176,123,11,0.69)_97%)_1]">
-        <div className="flex w-[952px] h-[572px] items-center justify-end relative">
-          <div className="flex flex-col w-[612px] items-start relative">
+      <article className="flex flex-col w-[968px] h-[588px] items-start gap-2.5 p-2 relative bg-black-000 border-8 border-solid border-transparent [border-image:linear-gradient(180deg,rgba(176,123,11,1)_0%,rgba(255,230,145,1)_53%,rgba(176,123,11,0.69)_97%)_1] -mt-[6px] -ml-[8px]">
+        <div className="flex w-[952px] h-[572px] items-start justify-end relative -mt-[8px] -ml-[8px]">
+          <div className="flex flex-col w-[612px] h-[572px] items-start justify-end relative">
             <img
-              className="relative self-stretch w-full aspect-[1.5] object-cover"
+              className="relative w-[612px] aspect-[525/351] object-cover"
               alt="SHIROSE ファンクラブの写真"
               src="https://c.animaapp.com/h73j2KJP/img/231004-164.png"
             />
@@ -39,7 +39,7 @@ export const ShiroseFanClubSection = (): JSX.Element => {
             </div>
           </div>
 
-          <div className="flex flex-col w-[427px] items-end gap-7 relative ml-[-87px]">
+          <div className="flex flex-col w-[427px] items-start gap-7 relative">
             <img
               className="relative self-stretch w-full aspect-[1.76]"
               alt="SHIROSE ファンクラブイベントの写真"

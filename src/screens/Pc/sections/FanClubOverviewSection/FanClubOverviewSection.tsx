@@ -28,13 +28,13 @@ export const FanClubOverviewSection = (): JSX.Element => {
             <img
               className="relative w-[22.41px] h-[28.79px]"
               alt=""
-              src="https://c.animaapp.com/h73j2KJP/img/line-2-4.svg"
+              src="https://c.animaapp.com/h73j2KJP/img/line-2.svg"
             />
 
             <img
-              className="mt-[-1.25px] relative w-[23.73px] h-[47.25px] mr-[-2.73px] -ml-2.5"
+              className="relative w-[23.73px] h-[47.25px] mt-[-1.25px] mr-[-2.73px] -ml-2.5"
               alt=""
-              src="https://c.animaapp.com/h73j2KJP/img/line-1-4.svg"
+              src="https://c.animaapp.com/h73j2KJP/img/line-1.svg"
             />
           </div>
 
@@ -43,19 +43,15 @@ export const FanClubOverviewSection = (): JSX.Element => {
           </p>
 
           <div
-            className="inline-flex items-end relative flex-[0_0_auto] rotate-180"
+            className="inline-flex items-end relative flex-[0_0_auto]"
             aria-hidden="true"
           >
             <img
-              className="-rotate-180 relative w-[22.41px] h-[28.79px]"
+              src="/img/Frame5-decor.png"
               alt=""
-              src="https://c.animaapp.com/h73j2KJP/img/line-2-5.svg"
-            />
-
-            <img
-              className="mb-[-1.25px] -rotate-180 relative w-[23.73px] h-[47.25px] mr-[-2.73px] -ml-2.5"
-              alt=""
-              src="https://c.animaapp.com/h73j2KJP/img/line-1-5.svg"
+              className="flex-shrink-0 w-[33px] h-[46px] object-contain"
+              width={33}
+              height={46}
             />
           </div>
         </div>

@@ -5,9 +5,7 @@ export const MembershipPlansSection = (): JSX.Element => {
   ];
 
   const membershipButtons = [
-    { title: "iPhoneの方", subtitle: "(キャリア決済)" },
-    { title: "Androidの方", subtitle: "(キャリア決済)" },
-    { title: "カード決済の方", subtitle: "" },
+    { title: "ファンクラブ+プラス", subtitle: "" },
   ];
 
   const benefits = [
@@ -15,8 +13,9 @@ export const MembershipPlansSection = (): JSX.Element => {
     "チケット割引",
     "ムービー",
     "フォトアルバム",
-    "タイムライン",
     "ファンクラブ限定グッズ",
+    "年に2回の会報誌",
+    "壁紙ダウンロード",
     "スケジュール共有",
   ];
 
@@ -78,43 +77,55 @@ export const MembershipPlansSection = (): JSX.Element => {
 
   return (
     <section className="flex flex-col items-center gap-12 pt-16 pb-0 px-[246px] relative self-stretch w-full flex-[0_0_auto]">
-      <header className="flex flex-col w-[548px] items-center gap-4 relative flex-[0_0_auto]">
+      <header className="flex flex-col w-[720px] items-center gap-4 relative flex-[0_0_auto]">
         <div className="flex self-stretch w-full flex-col items-center justify-center gap-4 relative flex-[0_0_auto]">
-          <div className="inline-flex flex-col h-[86px] items-center justify-center gap-3 relative">
+          <div className="inline-flex flex-col min-h-[86px] items-center justify-center gap-3 relative w-full max-w-[720px]">
             <h2 className="relative w-fit [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-text text-4xl text-center tracking-[0] leading-[43.2px] whitespace-nowrap">
-              Webファンクラブで加入できます
+              ファンクラブ+プラス
             </h2>
 
-            <p className="text-text leading-[28.8px] relative w-fit [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-2xl text-center tracking-[0] whitespace-nowrap">
-              (PC・スマートフォン)
+            <p className="text-text leading-[28.8px] relative w-fit [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-2xl text-center tracking-[0]">
+              WHITE JAMをさらに知りたい方は、
+              <br />
+              会員証と年2回の会報誌が送られてくるファンクラブ+プラス
             </p>
           </div>
         </div>
 
         <div className="inline-flex items-center gap-4 relative flex-[0_0_auto]">
-          {/* 左側の装飾（入会するの斜線） */}
-          <img
-            src="/img/Frame4.png"
-            alt=""
-            className="flex-shrink-0 w-7 h-12 object-contain"
-            width={28}
-            height={48}
-            aria-hidden={true}
-          />
+          <div
+            className="inline-flex items-end relative flex-[0_0_auto]"
+            aria-hidden="true"
+          >
+            <img
+              className="relative w-[22.41px] h-[28.79px]"
+              alt=""
+              src="https://c.animaapp.com/h73j2KJP/img/line-2.svg"
+            />
+
+            <img
+              className="relative w-[23.73px] h-[47.25px] mt-[-1.25px] mr-[-2.73px] -ml-2.5"
+              alt=""
+              src="https://c.animaapp.com/h73j2KJP/img/line-1.svg"
+            />
+          </div>
 
           <p className="w-fit mt-[-1.00px] font-black text-main text-[50px] text-center leading-[50px] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
-            入会する
+            ファンクラブ＋プラスに入る
           </p>
 
-          {/* 右側の装飾（デスクトップの Frame 5.svg） */}
-          <img
-            src="/img/Frame5.svg"
-            alt=""
-            className="flex-shrink-0 w-7 h-12 object-contain"
-            width={28}
-            height={48}
-            aria-hidden={true}
-          />
+          <div
+            className="inline-flex items-end relative flex-[0_0_auto]"
+            aria-hidden="true"
+          >
+            <img
+              src="/img/Frame5-decor.png"
+              alt=""
+              className="flex-shrink-0 w-[33px] h-[46px] object-contain"
+              width={33}
+              height={46}
+            />
+          </div>
         </div>
       </header>
 
@@ -138,7 +149,7 @@ export const MembershipPlansSection = (): JSX.Element => {
           ))}
         </div>
 
-        <div className="flex items-center justify-between relative self-stretch w-full flex-[0_0_auto]">
+        <div className="flex items-center justify-center relative self-stretch w-full flex-[0_0_auto]">
           {membershipButtons.map((button, index) => (
             <button
               key={index}
@@ -146,7 +157,7 @@ export const MembershipPlansSection = (): JSX.Element => {
               aria-label={`${button.title}${button.subtitle ? ` ${button.subtitle}` : ""}`}
             >
               <span
-                className={`${index === 0 ? "relative w-fit ml-[-0.50px] mr-[-0.50px]" : index === 1 ? "ml-[-6.00px] mr-[-6.00px] leading-6 relative w-fit" : "ml-[-18.00px] mr-[-18.00px] leading-6 relative w-fit"} [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-main text-2xl text-center tracking-[0] ${index === 0 ? "leading-6" : ""} whitespace-nowrap`}
+                className="ml-[-18.00px] mr-[-18.00px] leading-6 relative w-fit [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-main text-2xl text-center tracking-[0] whitespace-nowrap"
               >
                 {button.title}
               </span>
@@ -161,38 +172,31 @@ export const MembershipPlansSection = (): JSX.Element => {
         </div>
 
         <div className="flex items-start gap-10 relative self-stretch w-full flex-[0_0_auto]">
-          <article className="flex flex-col w-[464px] items-center gap-6 pt-0 pb-6 px-0 relative bg-grey-1 rounded-[20px_20px_0px_0px] border-4 border-solid border-light-blue">
-            <div className="flex items-center justify-center gap-2.5 p-4 relative self-stretch w-full flex-[0_0_auto] bg-light-blue rounded-[20px_20px_0px_0px]">
+          <article className="flex flex-col w-[464px] items-center gap-6 pt-0 pb-6 px-0 relative overflow-hidden bg-grey-1 rounded-[20px_20px_0px_0px] border-4 border-solid border-light-blue">
+            <div className="flex items-center justify-center gap-2.5 p-4 relative self-stretch w-full flex-[0_0_auto] bg-light-blue rounded-[16px_16px_0px_0px]">
               <h3 className="w-fit mt-[-1.00px] font-extrabold text-white text-[32px] text-center leading-[38.4px] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
                 Webファンクラブ
               </h3>
             </div>
 
             <div className="flex flex-col w-[396px] items-start gap-6 relative flex-[0_0_auto]">
-              <figure className="flex flex-col w-[396px] h-[264px] items-start justify-end gap-2.5 relative overflow-hidden bg-grey-1">
+              <figure className="flex flex-col w-[396px] h-[264px] items-start justify-end gap-2.5 relative overflow-hidden rounded-[20px_20px_0px_0px] bg-grey-1">
                 <img
                   src="/img/web-fanclub-pc-1@2x.png"
                   alt="Webファンクラブの様子"
                   className="absolute inset-0 w-full h-full object-cover object-[50%_50%]"
                 />
-                <figcaption className="flex w-[396px] items-center justify-center gap-2.5 p-2.5 relative flex-[0_0_auto] bg-[#8acbd899] z-10">
-                  <p className="w-fit mt-[-1.00px] font-bold text-white text-xs text-center leading-[15.6px] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
-                    3人のプライベートなど、Web限定でのぞき見できます。
-                    <br />
-                    メンバーの共同生活の様子も発信。
-                  </p>
-                </figcaption>
               </figure>
 
               <div className="inline-flex items-end gap-6 relative flex-[0_0_auto]">
                 <div className="inline-flex flex-col items-start gap-6 relative flex-[0_0_auto]">
                   <div className="flex flex-col w-[282px] items-start gap-3 relative flex-[0_0_auto]">
                     <h4 className="relative self-stretch mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-text text-lg tracking-[0] leading-[18px]">
-                      WHITE JAM HOUSE プライベート
+                      WHITE JAM HOUSE
                     </h4>
 
                     <p className="self-stretch font-bold text-text text-sm text-justify leading-[19.6px] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
-                      配信多めで、メンバーのプライベートが見れるファンクラブです
+                      会報誌がもらえるファンクラブです
                     </p>
                   </div>
 
@@ -289,7 +293,7 @@ export const MembershipPlansSection = (): JSX.Element => {
                       <br />
                       （第4水曜）WHITE JAM ルーム・生配信
                       <br />
-                      ※WEB会員はアーカイブのみ
+                      <span className="inline-block pl-[7ch]">※WEB会員はアーカイブのみ</span>
                     </p>
                   </div>
                 </div>
