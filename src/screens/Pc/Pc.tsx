@@ -51,11 +51,11 @@ const decorativeIconsRight = [
 export const Pc = (): JSX.Element => {
   return (
     <div
-      className="bg-grey-1 overflow-hidden w-full min-w-[1440px] min-h-[6182px] relative"
+      className="bg-grey-1 overflow-hidden w-full min-w-0 min-h-screen lg:min-h-[6182px] lg:w-full relative"
       data-model-id="42:2"
     >
       <aside
-        className="flex flex-col w-[76px] items-start gap-16 absolute top-[5412px] left-[1349px]"
+        className="hidden lg:flex flex-col w-[76px] items-start gap-16 absolute top-[5412px] left-[1349px]"
         aria-hidden="true"
       >
         <div className="relative self-stretch w-full h-[676.18px]">
@@ -108,7 +108,7 @@ export const Pc = (): JSX.Element => {
       </aside>
 
       <aside
-        className="flex flex-col w-[73px] items-start gap-16 absolute top-[5449px] left-5"
+        className="hidden lg:flex flex-col w-[73px] items-start gap-16 absolute top-[5449px] left-5"
         aria-hidden="true"
       >
         <div className="relative self-stretch w-full h-[673.42px] bg-[url(https://c.animaapp.com/h73j2KJP/img/group-13.png)] bg-[100%_100%]" />
@@ -117,12 +117,12 @@ export const Pc = (): JSX.Element => {
       </aside>
 
       <img
-        className="absolute top-4 left-[92px] w-[77px] h-[65px] aspect-[1.19] object-cover"
+        className="absolute top-4 left-4 lg:left-[92px] w-[60px] h-auto lg:w-[77px] lg:h-[65px] aspect-[1.19] object-cover"
         alt="White House Logo"
         src="https://c.animaapp.com/h73j2KJP/img/250529-white-house-logo@2x.png"
       />
 
-      <main className="flex flex-col w-[1440px] items-start absolute top-0 left-0">
+      <main className="flex flex-col w-full max-w-full lg:w-full items-start relative lg:absolute lg:top-0 lg:left-0">
         <HeroSection />
         <MembershipBenefitsSection />
         <MembershipPlansSection />

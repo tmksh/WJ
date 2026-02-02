@@ -5,7 +5,7 @@ export const FooterSection = (): JSX.Element => {
   ];
 
   return (
-    <footer className="flex flex-col items-center gap-6 px-[120px] py-10 relative self-stretch w-full flex-[0_0_auto]">
+    <footer className="flex flex-col items-center gap-6 px-4 lg:px-[120px] py-8 lg:py-10 relative self-stretch w-full flex-[0_0_auto]">
       <div className="flex flex-col w-[130px] items-center gap-1.5 relative flex-[0_0_auto]">
         <img
           className="w-20 h-[68px] relative aspect-[1.19] object-cover"
@@ -26,11 +26,11 @@ export const FooterSection = (): JSX.Element => {
         </div>
       </div>
 
-      <div className="flex items-center justify-center gap-6 relative self-stretch w-full flex-[0_0_auto]">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-2 lg:gap-6 relative self-stretch w-full flex-[0_0_auto]">
         {copyrightTexts.map((text, index) => (
           <p
             key={index}
-            className="relative w-fit mt-[-1.00px] [font-family:'Poppins',Helvetica] font-normal text-text text-[10px] text-center tracking-[0] leading-[10px] whitespace-nowrap"
+            className="relative w-fit mt-[-1.00px] [font-family:'Poppins',Helvetica] font-normal text-text text-[10px] text-center tracking-[0] leading-[10px] lg:whitespace-nowrap"
           >
             {text}
           </p>

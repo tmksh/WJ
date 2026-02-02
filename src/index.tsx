@@ -4,6 +4,8 @@ import { Pc } from "./screens/Pc";
 
 createRoot(document.getElementById("app") as HTMLElement).render(
   <StrictMode>
-    <Pc />
+    <div className="min-w-0 overflow-x-hidden">
+      <Pc />
+    </div>
   </StrictMode>,
 );
