@@ -9,16 +9,17 @@ import { ShiroseFanClubSection } from "./sections/ShiroseFanClubSection";
 export const Pc = (): JSX.Element => {
   return (
     <div
-      className="bg-grey-1 overflow-hidden w-full min-w-0 min-h-screen lg:min-w-[1024px] lg:min-h-[6182px] lg:w-full relative"
+      className="bg-grey-1 overflow-x-hidden overflow-y-auto w-full min-w-0 min-h-screen lg:min-h-screen lg:max-h-screen lg:min-w-[1024px] lg:w-full relative"
       data-model-id="42:2"
     >
+      {/* SP時のみ表示（PC時はHeroSection内のロゴ1つのみ） */}
       <img
-        className="absolute top-4 left-4 lg:left-[92px] w-[60px] h-auto lg:w-[77px] lg:h-[65px] aspect-[1.19] object-cover"
+        className="absolute top-4 left-4 w-[60px] h-auto aspect-[1.19] object-cover lg:hidden"
         alt="White House Logo"
         src="https://c.animaapp.com/h73j2KJP/img/250529-white-house-logo@2x.png"
       />
 
-      <main className="flex flex-col w-full max-w-full lg:w-full items-start relative lg:absolute lg:top-0 lg:left-0">
+      <main className="flex flex-col w-full max-w-full lg:w-full items-start relative">
         {/* PC時(1024px〜): デザイン幅1440pxをそのまま縮小して表示。SP時: 通常フロー */}
         <div className="pc-layout-scaler-wrapper w-full">
           <div className="pc-layout-scaler w-full flex flex-col items-stretch">
@@ -26,8 +27,14 @@ export const Pc = (): JSX.Element => {
             <div className="w-full max-h-[100dvh] lg:max-h-none lg:flex lg:justify-center lg:overflow-x-hidden">
               <HeroSection />
             </div>
-            {/* FV下のセクション：右端にSVGアイコンを余白なしで配置（PC時のみ） */}
+            {/* 左右端SVGアイコン（SP: SPアイコン、PC: PCアイコンで1440px前後同じ表示） */}
             <div className="relative w-full flex flex-col items-start">
+              <img
+                src="/img/right-icon-sp.svg"
+                alt=""
+                className="lg:hidden absolute top-0 right-0 w-[58px] h-auto pointer-events-none"
+                aria-hidden="true"
+              />
               <img
                 src="/img/right-icon-pc.svg"
                 alt=""

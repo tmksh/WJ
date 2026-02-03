@@ -16,14 +16,14 @@ export const HeroSection = (): JSX.Element => {
 
   return (
     <section
-      className="relative w-full min-h-[100dvh] lg:min-h-[768px] lg:w-[1438px] lg:h-[768px] lg:mx-auto mb-[56px]"
+      className="relative w-full min-h-[100dvh] lg:min-h-0 lg:w-[1438px] lg:h-[min(768px,100vh)] lg:max-h-[100vh] lg:overflow-hidden lg:mx-auto mb-[56px]"
       aria-label="Hero section"
     >
-      <div className="absolute top-0 left-0 bg-grey-1 w-full h-full min-h-[100dvh] lg:w-[1438px] lg:h-[768px]">
+      <div className="absolute top-0 left-0 bg-grey-1 w-full h-full min-h-[100dvh] lg:w-[1438px] lg:h-[min(768px,100vh)] lg:max-h-[100vh]">
         {/* SP: ロゴの下からコンテンツ開始、FVを1画面に収めて表示 */}
-        <div className="flex flex-col items-center justify-center lg:hidden w-full h-full min-h-[100dvh] pt-14 px-4 pb-4 box-border">
-          <div className="flex flex-col items-center justify-center gap-4 w-full max-w-[min(360px,calc(100vw-32px))] h-full max-h-[calc(100dvh-32px)] min-h-0 overflow-hidden">
-            <div className="flex flex-col items-center justify-center gap-3 w-full min-w-0 min-h-0 flex-1 overflow-hidden">
+        <div className="flex flex-col items-center justify-center lg:hidden w-full h-full min-h-[100dvh] pt-4 px-4 pb-4 box-border">
+          <div className="flex flex-col items-center justify-center gap-4 w-full max-w-[min(360px,calc(100vw-32px))] h-full max-h-[calc(100dvh-32px)] min-h-0 overflow-hidden mx-auto">
+            <div className="flex flex-col items-center justify-center gap-3 w-full min-w-0 min-h-0 flex-1 overflow-hidden animate-hero-fade-up">
               <div className="flex-shrink-0 flex items-center justify-center min-h-0">
                 <img
                   className="w-[261px] max-w-[70vw] max-h-[18dvh] aspect-[1.19] object-contain"
@@ -42,17 +42,17 @@ export const HeroSection = (): JSX.Element => {
                 </h2>
               </div>
               <div className="flex-1 min-h-0 min-w-0 w-full flex items-center justify-center overflow-visible p-1">
-                <div className="relative w-full max-w-full aspect-square max-h-full min-h-0 flex items-center justify-center">
-                  {/* 添付画像どおり: 丸いメイン画像＋右下にバッジを重ねて配置 */}
-                  <div className="relative w-full h-full max-w-full max-h-full rounded-full overflow-hidden bg-grey-1">
+                <div className="relative w-full max-w-full aspect-square max-h-full min-h-0 flex items-center justify-center mx-auto">
+                  {/* 添付画像どおり: 丸いメイン画像＋右下にバッジを重ねて配置（SPで中央表示） */}
+                  <div className="relative w-full h-full max-w-full max-h-full rounded-full overflow-hidden bg-grey-1 flex items-center justify-center">
                     <img
-                      className="absolute inset-0 w-full h-full object-contain object-center"
+                      className="w-full h-full object-contain object-center"
                       alt="White House Jam promotional image"
                       src="https://c.animaapp.com/h73j2KJP/img/img.png"
                     />
                   </div>
                   <div
-                    className="absolute bottom-[2%] right-[2%] flex items-center justify-center"
+                    className="absolute bottom-[2%] right-[2%] flex items-center justify-center animate-hero-fade-up-delayed"
                     role="img"
                     aria-label="会員募集中"
                   >
@@ -69,13 +69,13 @@ export const HeroSection = (): JSX.Element => {
         </div>
         {/* PC: キービジュアル（余白を確保して途切れないよう少し縮小） */}
         <img
-          className="hidden lg:block absolute top-[194px] left-[669px] w-[540px] h-[540px] object-contain"
+          className="hidden lg:block absolute top-[194px] left-[669px] w-[540px] h-[540px] object-contain animate-hero-fade-up"
           alt="White House Jam promotional image"
           src="https://c.animaapp.com/h73j2KJP/img/img.png"
         />
 
         {/* PC: タイトルブロック */}
-        <div className="hidden lg:flex flex-col w-full max-w-[420px] lg:w-[420px] items-center gap-4 lg:gap-[26px] absolute top-[204px] left-[189px] px-4">
+        <div className="hidden lg:flex flex-col w-full max-w-[420px] lg:w-[420px] items-center gap-4 lg:gap-[26px] absolute top-[204px] left-[189px] px-4 animate-hero-fade-up">
           <img
             className="self-stretch w-[261px] max-w-full relative aspect-[1.19] object-cover mx-auto"
             alt="White House official logo"
@@ -97,7 +97,7 @@ export const HeroSection = (): JSX.Element => {
 
         {/* PC: バッジ */}
         <div
-          className="hidden lg:block absolute top-[152px] left-[1076px] w-[177px] h-[129px]"
+          className="hidden lg:block absolute top-[152px] left-[1076px] w-[177px] h-[129px] animate-hero-fade-up-delayed"
           role="img"
           aria-label="Recruitment badge"
         >
@@ -118,12 +118,12 @@ export const HeroSection = (): JSX.Element => {
       <img
         src="/img/logo-whitetjam.png"
         alt="WHITE JAM"
-        className="absolute top-0 left-0 lg:top-4 lg:left-[118px] h-10 lg:h-[58px] w-auto object-contain"
+        className="absolute top-0 left-0 lg:top-4 lg:left-auto lg:right-[1365px] h-10 lg:h-[58px] w-auto object-contain"
         aria-hidden="false"
       />
 
       <nav
-        className="inline-flex items-center gap-2 lg:gap-4 fixed top-4 right-4 left-auto z-10"
+        className="inline-flex items-center gap-2 lg:gap-4 fixed top-4 right-4 left-auto z-10 lg:right-[max(1rem,calc((100vw-1440px)/2))]"
         aria-label="Language selection"
       >
         {languageOptions.map((language) => (

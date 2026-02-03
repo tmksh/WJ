@@ -91,11 +91,11 @@ export const MembershipPlansSection = (): JSX.Element => {
           ))}
         </div>
 
-        <div className="flex items-center justify-center relative self-stretch w-full flex-[0_0_auto]">
+        <div className="flex items-center justify-center relative self-stretch w-full max-w-[464px] lg:max-w-none flex-[0_0_auto] mx-auto">
           {membershipButtons.map((button, index) => (
             <button
               key={index}
-              className="w-full lg:w-[296px] bg-light-blue flex flex-col h-[58px] items-center justify-center gap-[5px] px-[82px] py-2 relative rounded-[1000px] shadow-PC cursor-pointer hover:opacity-90 transition-opacity"
+              className="w-full max-w-[464px] lg:max-w-none lg:w-[296px] bg-light-blue flex flex-col h-[58px] items-center justify-center gap-[5px] px-[82px] py-2 relative rounded-[1000px] shadow-PC cursor-pointer hover:opacity-90 transition-opacity"
               aria-label={`${button.title}${button.subtitle ? ` ${button.subtitle}` : ""}`}
             >
               <span
@@ -189,11 +189,27 @@ export const MembershipPlansSection = (): JSX.Element => {
                     />
                   </div>
 
-                  <img
-                    className="relative w-[70px] h-auto object-contain"
-                    alt="Click to join"
-                    src="https://c.animaapp.com/h73j2KJP/img/group-6-1@2x.png"
-                  />
+                  <div className="group relative w-[70px] cursor-pointer">
+                    <img
+                      className="relative w-[70px] h-auto object-contain block transition-opacity duration-200 group-hover:opacity-0"
+                      alt="Click to join"
+                      src="https://c.animaapp.com/h73j2KJP/img/group-6-1@2x.png"
+                    />
+                    {/* ホバー時: SP用水色ドア */}
+                    <img
+                      src="/img/door-mizu-sp.svg"
+                      alt="入会する"
+                      className="absolute inset-0 w-[70px] h-auto m-auto object-contain opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 lg:hidden"
+                      aria-hidden="true"
+                    />
+                    {/* ホバー時: PC用水色ドア */}
+                    <img
+                      src="/img/door-mizu-pc.svg"
+                      alt="入会する"
+                      className="absolute inset-0 w-[70px] h-auto m-auto object-contain opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 hidden lg:block"
+                      aria-hidden="true"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

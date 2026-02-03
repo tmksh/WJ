@@ -157,8 +157,8 @@ export const FanClubComparisonSection = (): JSX.Element => {
         </div>
       </header>
 
-      <div className="flex flex-col items-start lg:items-center gap-10 relative z-10 self-stretch w-full flex-[0_0_auto] fanclub-comparison-scroll">
-        <div ref={scrollContainerRef} className="w-full overflow-x-auto lg:overflow-visible">
+      <div className="flex flex-col items-start lg:items-center gap-10 relative z-10 self-stretch w-full flex-[0_0_auto]">
+        <div ref={scrollContainerRef} className="fanclub-comparison-scroll w-full overflow-x-auto lg:overflow-visible pb-[10px] lg:pb-0">
         <div className="w-max min-w-full lg:w-full lg:flex lg:justify-center lg:min-w-0 lg:text-center">
         <div className="fanclub-comparison-table-scaler flex justify-start lg:justify-center w-full lg:w-auto lg:min-w-0 lg:mx-auto lg:inline-block">
           <table className="items-end self-stretch w-[780px] lg:w-[968px] min-w-0 flex-[0_0_auto] border-2 border-solid border-text flex flex-col relative mx-0 lg:mx-auto bg-[#F7F6F3]">

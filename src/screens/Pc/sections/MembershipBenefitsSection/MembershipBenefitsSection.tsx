@@ -22,11 +22,17 @@ export const MembershipBenefitsSection = (): JSX.Element => {
 
   return (
     <section className="flex flex-col items-center gap-8 lg:gap-12 pt-8 lg:pt-16 pb-0 px-4 lg:px-[246px] relative self-stretch w-full flex-[0_0_auto]">
-      {/* 左端に配置するアイコン（余白なし） */}
+      {/* 左端に配置するアイコン（SP: 左アイコン SP、PC: 左アイコン PCで1440px前後同じ表示） */}
+      <img
+        src="/img/left-icon-sp.svg"
+        alt=""
+        className="absolute top-0 left-0 w-[58px] h-auto lg:hidden"
+        aria-hidden="true"
+      />
       <img
         src="/img/left-icon-pc.svg"
         alt=""
-        className="absolute top-16 left-0 w-[73px] h-auto"
+        className="absolute top-0 left-0 w-[73px] h-auto hidden lg:block"
         aria-hidden="true"
       />
       <header className="flex flex-col w-[548px] items-center gap-0 relative flex-[0_0_auto]">
@@ -95,7 +101,7 @@ export const MembershipBenefitsSection = (): JSX.Element => {
           ))}
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 relative self-stretch w-full flex-[0_0_auto]">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 relative self-stretch w-full max-w-[464px] lg:max-w-none flex-[0_0_auto] mx-auto lg:mx-0">
           {membershipButtons.map((button, index) => (
             <button
               key={index}
@@ -195,11 +201,27 @@ export const MembershipBenefitsSection = (): JSX.Element => {
                     />
                   </div>
 
-                  <img
-                    className="relative w-[70px] h-auto object-contain"
-                    alt="Click to join"
-                    src="https://c.animaapp.com/h73j2KJP/img/group-6@2x.png"
-                  />
+                  <div className="group relative w-[70px] cursor-pointer">
+                    <img
+                      className="relative w-[70px] h-auto object-contain block transition-opacity duration-200 group-hover:opacity-0"
+                      alt="Click to join"
+                      src="https://c.animaapp.com/h73j2KJP/img/group-6@2x.png"
+                    />
+                    {/* ホバー時: SP用ドア */}
+                    <img
+                      src="/img/door-pink-sp.svg"
+                      alt="入会する"
+                      className="absolute inset-0 w-[70px] h-auto m-auto object-contain opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 lg:hidden"
+                      aria-hidden="true"
+                    />
+                    {/* ホバー時: PC用ドア */}
+                    <img
+                      src="/img/door-pink-pc.svg"
+                      alt="入会する"
+                      className="absolute inset-0 w-[70px] h-auto m-auto object-contain opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 hidden lg:block"
+                      aria-hidden="true"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
