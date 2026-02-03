@@ -49,8 +49,8 @@ export const FanClubOverviewSection = (): JSX.Element => {
         </div>
       </header>
 
-      <div className="flex flex-col lg:flex-row items-center justify-between lg:justify-start gap-8 lg:gap-0 relative self-stretch w-full min-w-0 flex-[0_0_auto]">
-        <article className="flex flex-col w-full max-w-[720px] lg:max-w-none lg:flex-1 lg:min-w-0 items-center gap-0 lg:gap-8 px-4 lg:px-[84px] py-10 relative bg-main">
+      <div className="flex flex-col lg:flex-row items-center justify-between lg:justify-start gap-0 lg:gap-0 relative self-stretch w-[calc(100%+32px)] -mx-4 lg:mx-0 lg:w-full min-w-0 flex-[0_0_auto]">
+        <article className="flex flex-col w-full max-w-none lg:max-w-none lg:w-1/2 lg:min-w-0 lg:flex-shrink-0 lg:h-[756px] items-center gap-6 lg:gap-8 px-4 lg:px-[84px] py-10 relative bg-main">
           <img
             className="relative w-[463px] h-[514.11px] -my-5 lg:my-0 object-contain"
             alt="ファンクラブ会員特典イラスト"
@@ -64,7 +64,7 @@ export const FanClubOverviewSection = (): JSX.Element => {
             </p>
 
             <nav
-              className="flex flex-col lg:flex-row items-center gap-4 lg:gap-6 relative self-stretch w-full flex-[0_0_auto]"
+              className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-6 relative self-stretch w-full flex-[0_0_auto]"
               aria-label="入会方法選択"
             >
               {membershipButtons.map((button, index) => (
@@ -91,14 +91,14 @@ export const FanClubOverviewSection = (): JSX.Element => {
           </div>
         </article>
 
-        <article className="flex flex-col w-full max-w-[720px] lg:max-w-none lg:flex-1 lg:min-w-0 min-h-[400px] lg:h-[756px] items-center justify-end gap-0 lg:gap-8 px-4 lg:px-36 py-10 relative bg-light-blue">
+        <article className="flex flex-col w-full max-w-none lg:max-w-none lg:w-1/2 lg:min-w-0 lg:flex-shrink-0 min-h-[400px] lg:h-[756px] items-center gap-6 lg:gap-8 px-4 lg:px-[84px] py-10 relative bg-light-blue">
           <img
-            className="relative self-stretch w-full h-[514px] ml-0 mr-0 lg:ml-[-15.50px] lg:mr-[-15.50px] -my-5 lg:my-0 object-contain"
+            className="relative w-full max-w-[463px] h-[514px] -my-5 lg:my-0 object-contain"
             alt="ファンクラブ+プラス会員特典イラスト"
             src="https://c.animaapp.com/h73j2KJP/img/frame-47.svg"
           />
 
-          <div className="flex flex-col w-full lg:w-[194px] items-center gap-4 px-4 lg:px-0 py-0 relative flex-[0_0_auto]">
+          <div className="flex flex-col items-center gap-4 relative self-stretch w-full flex-[0_0_auto]">
             <p className="self-stretch mt-[-1.00px] font-extrabold text-white text-[18px] lg:text-[20px] text-center leading-[28.0px] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
               さらに知りたい方は
               <br />

@@ -1,4 +1,28 @@
+import { useRef, useEffect } from "react";
+
 export const FanClubComparisonSection = (): JSX.Element => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el || window.innerWidth >= 1024) return;
+    const centerScroll = (): void => {
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (maxScroll > 0) {
+        el.scrollLeft = maxScroll / 2;
+      }
+    };
+    const t = requestAnimationFrame(() => {
+      requestAnimationFrame(centerScroll);
+    });
+    const ro = new ResizeObserver(centerScroll);
+    ro.observe(el);
+    return () => {
+      cancelAnimationFrame(t);
+      ro.disconnect();
+    };
+  }, []);
+
   const comparisonData = [
     {
       rowLabel: "入会時",
@@ -123,69 +147,9 @@ export const FanClubComparisonSection = (): JSX.Element => {
     },
   ];
 
-  const decorativeIcons = [
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/dish-17040887-2-5.svg",
-      alt: "Dish",
-      top: "89.18%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/sofa-2337972-6.svg",
-      alt: "Sofa",
-      top: "0",
-      left: "2.90%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/plants-2338011-5.svg",
-      alt: "Plants",
-      top: "44.37%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/table-lamp-6480817-5.svg",
-      alt: "Table lamp",
-      top: "22.21%",
-      left: "2.18%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/sofa-2338077-5.svg",
-      alt: "Sofa",
-      top: "66.58%",
-    },
-  ];
-
-  const decorativeIconsSecond = [
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/dish-17040887-2-6.svg",
-      alt: "Dish",
-      top: "89.18%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/sofa-2337972-7.svg",
-      alt: "Sofa",
-      top: "0",
-      left: "2.90%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/plants-2338011-6.svg",
-      alt: "Plants",
-      top: "44.37%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/table-lamp-6480817-6.svg",
-      alt: "Table lamp",
-      top: "22.21%",
-      left: "2.18%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/sofa-2338077-6.svg",
-      alt: "Sofa",
-      top: "66.58%",
-    },
-  ];
-
   return (
     <section className="flex flex-col items-center gap-8 lg:gap-12 pt-8 lg:pt-20 pb-0 px-4 lg:px-[236px] relative self-stretch w-full flex-[0_0_auto]">
-      <header className="inline-flex flex-col items-center justify-center gap-4 relative flex-[0_0_auto]">
+      <header className="inline-flex flex-col items-center justify-center gap-4 relative z-10 flex-[0_0_auto]">
         <div className="inline-flex flex-col items-center justify-center gap-3 relative flex-[0_0_auto]">
           <h2 className="relative w-fit mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-text text-[22px] lg:text-[36px] text-center tracking-[0] leading-[1.2] whitespace-nowrap">
             入会特典・継続特典
@@ -193,11 +157,17 @@ export const FanClubComparisonSection = (): JSX.Element => {
         </div>
       </header>
 
-      <div className="flex flex-col items-start gap-10 relative self-stretch w-full flex-[0_0_auto] overflow-x-auto lg:overflow-visible fanclub-comparison-scroll">
-        <table className="items-end self-stretch w-[780px] lg:w-full min-w-0 lg:min-w-[684px] flex-[0_0_auto] border-2 border-solid border-text flex flex-col relative">
+      <div className="flex flex-col items-start lg:items-center gap-10 relative z-10 self-stretch w-full flex-[0_0_auto] fanclub-comparison-scroll">
+        <div ref={scrollContainerRef} className="w-full overflow-x-auto lg:overflow-visible">
+        <div className="w-max min-w-full lg:w-full lg:flex lg:justify-center lg:min-w-0 lg:text-center">
+        <div className="fanclub-comparison-table-scaler flex justify-start lg:justify-center w-full lg:w-auto lg:min-w-0 lg:mx-auto lg:inline-block">
+          <table className="items-end self-stretch w-[780px] lg:w-[968px] min-w-0 flex-[0_0_auto] border-2 border-solid border-text flex flex-col relative mx-0 lg:mx-auto bg-[#F7F6F3]">
           <thead className="inline-flex items-center relative flex-[0_0_auto]">
-            <tr className="inline-flex items-center relative flex-[0_0_auto]">
-              <th className="flex w-[230px] lg:w-[284px] h-[70px] lg:h-[76px] items-center justify-center gap-1 lg:gap-2.5 px-3 py-2 lg:p-4 relative bg-main">
+            <tr className="inline-flex items-center relative flex-[0_0_auto] w-full">
+              <th className="flex w-[90px] lg:w-[116px] h-[70px] lg:h-[76px] flex-shrink-0 items-center justify-center relative border-transparent bg-transparent" aria-hidden="true">
+                {/* 行ラベル列と幅を揃える空セル */}
+              </th>
+              <th className="flex w-[230px] min-w-[230px] lg:w-[284px] lg:min-w-[284px] flex-shrink-0 h-[70px] lg:h-[76px] items-center justify-center gap-1 lg:gap-2.5 px-3 py-2 lg:p-4 relative bg-main box-border">
                 <span className="w-fit mt-[-1.00px] font-black text-white text-sm lg:text-lg text-center leading-[1.2] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
                   ファンクラブ
                   <br />
@@ -205,13 +175,13 @@ export const FanClubComparisonSection = (): JSX.Element => {
                 </span>
               </th>
 
-              <th className="flex w-[230px] lg:w-[284px] h-[70px] lg:h-[76px] items-center justify-center gap-1 lg:gap-2.5 px-3 py-2 lg:p-4 relative bg-light-blue border-l [border-left-style:solid] border-grey-1">
+              <th className="flex w-[230px] min-w-[230px] lg:w-[284px] lg:min-w-[284px] flex-shrink-0 h-[70px] lg:h-[76px] items-center justify-center gap-1 lg:gap-2.5 px-3 py-2 lg:p-4 relative bg-light-blue border-l [border-left-style:solid] border-grey-1 box-border">
                 <span className="w-fit font-black text-white text-sm lg:text-lg text-center leading-[1.2] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
                   ファンクラブ+プラス
                 </span>
               </th>
 
-              <th className="flex w-[230px] lg:w-[284px] h-[70px] lg:h-[76px] items-center justify-center gap-1 lg:gap-2.5 px-3 py-2 lg:p-4 relative bg-[linear-gradient(180deg,rgba(176,123,11,1)_0%,rgba(255,230,145,1)_53%,rgba(176,123,11,0.69)_97%)]">
+              <th className="flex w-[230px] min-w-[230px] lg:w-[284px] lg:min-w-[284px] flex-shrink-0 h-[70px] lg:h-[76px] items-center justify-center gap-1 lg:gap-2.5 px-3 py-2 lg:p-4 relative bg-[linear-gradient(180deg,rgba(176,123,11,1)_0%,rgba(255,230,145,1)_53%,rgba(176,123,11,0.69)_97%)] box-border">
                 <span className="relative w-fit mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-black text-black-000 text-sm lg:text-lg text-center tracking-[0] leading-[1.2]">
                   SHIROSE
                   <br />
@@ -229,7 +199,7 @@ export const FanClubComparisonSection = (): JSX.Element => {
               >
                 <th
                   scope="row"
-                  className={`flex w-[90px] lg:w-[116px] ${row.height ? "h-[99px] lg:h-[107px]" : "h-[77px] lg:h-[83px]"} items-center justify-center gap-1 lg:gap-2.5 p-2 lg:p-4 relative ${row.bgClass} ${row.borderClass}`}
+                  className={`flex w-[90px] min-w-[90px] lg:w-[116px] lg:min-w-[116px] flex-shrink-0 ${row.height ? "h-[99px] lg:h-[107px]" : "h-[77px] lg:h-[83px]"} items-center justify-center gap-1 lg:gap-2.5 p-2 lg:p-4 relative ${row.bgClass} ${row.borderClass}`}
                 >
                   <span
                     className="w-fit font-bold text-text text-sm lg:text-lg text-center leading-[1.2] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]"
@@ -242,7 +212,7 @@ export const FanClubComparisonSection = (): JSX.Element => {
                 {row.cells.map((cell, cellIndex) => (
                   <td
                     key={cellIndex}
-                    className={`${row.height ? "h-[99px] lg:h-[107px]" : "h-[77px] lg:h-[83px]"} ${row.borderClass} ${row.bgClass} flex flex-col w-[230px] lg:w-[284px] items-center justify-center gap-1 lg:gap-2 px-3 py-2 lg:p-4 relative border-l [border-left-style:solid]`}
+                    className={`${row.height ? "h-[99px] lg:h-[107px]" : "h-[77px] lg:h-[83px]"} ${row.borderClass} ${row.bgClass} flex flex-col w-[230px] min-w-[230px] lg:w-[284px] lg:min-w-[284px] flex-shrink-0 items-center justify-center gap-1 lg:gap-2 px-3 py-2 lg:p-4 relative border-l [border-left-style:solid] box-border`}
                   >
                     {cell.title && (
                       <span
@@ -264,7 +234,10 @@ export const FanClubComparisonSection = (): JSX.Element => {
               </tr>
             ))}
           </tbody>
-        </table>
+          </table>
+        </div>
+        </div>
+        </div>
 
         <div className="flex flex-col items-center gap-4 relative self-stretch w-full flex-[0_0_auto]">
           <h3 className="relative self-stretch mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-black text-text text-base lg:text-lg text-center tracking-[0] leading-[28.8px]">
@@ -277,44 +250,6 @@ export const FanClubComparisonSection = (): JSX.Element => {
             住⺠カード（デジタル）については、年会費コース/月額コースの全てが対象となります。
           </p>
         </div>
-      </div>
-
-      <div
-        className="flex flex-col w-[76px] items-start gap-16 absolute top-2.5 left-[1349px]"
-        aria-hidden="true"
-      >
-        <div className="relative self-stretch w-full h-[676.18px]">
-          {decorativeIcons.map((icon, index) => (
-            <img
-              key={index}
-              className={`absolute w-[84.41%] h-[9.46%] ${icon.left ? `left-[${icon.left}]` : "left-0"}`}
-              style={{ top: icon.top }}
-              alt={icon.alt}
-              src={icon.src}
-            />
-          ))}
-        </div>
-
-        <div className="relative self-stretch w-full h-[676.18px]">
-          {decorativeIconsSecond.map((icon, index) => (
-            <img
-              key={index}
-              className={`absolute w-[84.41%] h-[9.46%] ${icon.left ? `left-[${icon.left}]` : "left-0"}`}
-              style={{ top: icon.top }}
-              alt={icon.alt}
-              src={icon.src}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div
-        className="flex flex-col w-[73px] items-start gap-16 absolute top-[47px] left-5"
-        aria-hidden="true"
-      >
-        <div className="relative self-stretch w-full h-[673.42px] bg-[url(https://c.animaapp.com/h73j2KJP/img/group-13-6.png)] bg-[100%_100%]" />
-
-        <div className="relative self-stretch w-full h-[673.42px] bg-[url(https://c.animaapp.com/h73j2KJP/img/group-13-7.png)] bg-[100%_100%]" />
       </div>
     </section>
   );

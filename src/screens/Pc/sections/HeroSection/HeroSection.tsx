@@ -16,49 +16,60 @@ export const HeroSection = (): JSX.Element => {
 
   return (
     <section
-      className="relative w-full min-h-[768px] lg:w-[1438px] lg:h-[768px] mb-[56px]"
+      className="relative w-full min-h-[100dvh] lg:min-h-[768px] lg:w-[1438px] lg:h-[768px] lg:mx-auto mb-[56px]"
       aria-label="Hero section"
     >
-      <div className="absolute top-0 left-0 bg-grey-1 w-full min-h-[768px] lg:w-[1438px] lg:h-[768px]">
-        {/* SP: タイトル＋キービジュアルを縦並び（キービジュアルはWHITE JAM HOUSEの下） */}
-        <div className="flex flex-col items-center gap-6 pt-4 px-4 lg:hidden">
-          <img
-            className="w-[261px] max-w-full aspect-[1.19] object-cover"
-            alt="White House official logo"
-            src="https://c.animaapp.com/h73j2KJP/img/250529-white-house-logo-1@2x.png"
-          />
-          <div className="flex flex-col items-center gap-[3px]">
-            <h1 className="[text-shadow:2px_2px_0px_#bc1e69] text-[46px] leading-[49px] [font-family:'Poppins',Helvetica] font-bold text-light-blue text-center tracking-[0]">
-              FANCLUB
-            </h1>
-            <h2 className="[text-shadow:2px_2px_0px_#8acbd8] [font-family:'Poppins',Helvetica] font-bold text-main text-[46px] leading-[49px] text-center tracking-[0]">
-              WHITE JAM
-              <br />
-              HOUSE
-            </h2>
-          </div>
-          <div className="relative w-full self-stretch max-w-[min(360px,calc(100vw-32px))] aspect-square flex-shrink-0 mx-auto">
-            <img
-              className="absolute inset-0 w-full h-full object-cover object-center"
-              alt="White House Jam promotional image"
-              src="https://c.animaapp.com/h73j2KJP/img/img.png"
-            />
-            <div
-              className="absolute bottom-2 right-2 flex items-center justify-center"
-              role="img"
-              aria-label="会員募集中"
-            >
-              <img
-                src="/img/badge-members-wanted.png"
-                alt="会員募集中"
-                className="w-[108px] h-auto object-contain"
-              />
+      <div className="absolute top-0 left-0 bg-grey-1 w-full h-full min-h-[100dvh] lg:w-[1438px] lg:h-[768px]">
+        {/* SP: ロゴの下からコンテンツ開始、FVを1画面に収めて表示 */}
+        <div className="flex flex-col items-center justify-center lg:hidden w-full h-full min-h-[100dvh] pt-14 px-4 pb-4 box-border">
+          <div className="flex flex-col items-center justify-center gap-4 w-full max-w-[min(360px,calc(100vw-32px))] h-full max-h-[calc(100dvh-32px)] min-h-0 overflow-hidden">
+            <div className="flex flex-col items-center justify-center gap-3 w-full min-w-0 min-h-0 flex-1 overflow-hidden">
+              <div className="flex-shrink-0 flex items-center justify-center min-h-0">
+                <img
+                  className="w-[261px] max-w-[70vw] max-h-[18dvh] aspect-[1.19] object-contain"
+                  alt="White House official logo"
+                  src="https://c.animaapp.com/h73j2KJP/img/250529-white-house-logo-1@2x.png"
+                />
+              </div>
+              <div className="flex flex-col items-center gap-[3px] w-full flex-shrink-0 min-h-0">
+                <h1 className="[text-shadow:2px_2px_0px_#bc1e69] text-[clamp(1.25rem,5dvh,2.875rem)] leading-tight [font-family:'Poppins',Helvetica] font-bold text-light-blue text-center tracking-[0]">
+                  FANCLUB
+                </h1>
+                <h2 className="[text-shadow:2px_2px_0px_#8acbd8] [font-family:'Poppins',Helvetica] font-bold text-main text-[clamp(1.25rem,5dvh,2.875rem)] leading-tight text-center tracking-[0]">
+                  WHITE JAM
+                  <br />
+                  HOUSE
+                </h2>
+              </div>
+              <div className="flex-1 min-h-0 min-w-0 w-full flex items-center justify-center overflow-visible p-1">
+                <div className="relative w-full max-w-full aspect-square max-h-full min-h-0 flex items-center justify-center">
+                  {/* 添付画像どおり: 丸いメイン画像＋右下にバッジを重ねて配置 */}
+                  <div className="relative w-full h-full max-w-full max-h-full rounded-full overflow-hidden bg-grey-1">
+                    <img
+                      className="absolute inset-0 w-full h-full object-contain object-center"
+                      alt="White House Jam promotional image"
+                      src="https://c.animaapp.com/h73j2KJP/img/img.png"
+                    />
+                  </div>
+                  <div
+                    className="absolute bottom-[2%] right-[2%] flex items-center justify-center"
+                    role="img"
+                    aria-label="会員募集中"
+                  >
+                    <img
+                      src="/img/badge-members-wanted.png"
+                      alt="会員募集中"
+                      className="w-[108px] h-auto object-contain drop-shadow-md"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        {/* PC: キービジュアル */}
+        {/* PC: キービジュアル（余白を確保して途切れないよう少し縮小） */}
         <img
-          className="hidden lg:block absolute top-[179px] left-[658px] w-[580px] h-[580px] object-contain"
+          className="hidden lg:block absolute top-[194px] left-[669px] w-[540px] h-[540px] object-contain"
           alt="White House Jam promotional image"
           src="https://c.animaapp.com/h73j2KJP/img/img.png"
         />
@@ -107,12 +118,12 @@ export const HeroSection = (): JSX.Element => {
       <img
         src="/img/logo-whitetjam.png"
         alt="WHITE JAM"
-        className="absolute top-4 left-4 lg:left-[118px] h-10 lg:h-[58px] w-auto object-contain"
+        className="absolute top-0 left-0 lg:top-4 lg:left-[118px] h-10 lg:h-[58px] w-auto object-contain"
         aria-hidden="false"
       />
 
       <nav
-        className="inline-flex items-center gap-2 lg:gap-4 absolute top-4 right-4 left-auto"
+        className="inline-flex items-center gap-2 lg:gap-4 fixed top-4 right-4 left-auto z-10"
         aria-label="Language selection"
       >
         {languageOptions.map((language) => (

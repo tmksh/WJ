@@ -139,6 +139,22 @@
   }
 }
 
+/* PCレイアウト(1024px〜): デザイン幅1440pxをそのまま縮小して表示。origin top leftで見切れ防止 */
+@media (min-width: 1024px) {
+  .pc-layout-scaler-wrapper {
+    width: min(1440px, 100vw);
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+  .pc-layout-scaler {
+    --pc-layout-scale: min(1, 100vw / 1440);
+    width: 1440px;
+    transform: scale(var(--pc-layout-scale));
+    transform-origin: top left;
+  }
+}
+
 /* FanClubComparisonSection: SP時のスクロールバー背景を #F7F6F3 に */
 .fanclub-comparison-scroll::-webkit-scrollbar {
   height: 8px;
@@ -157,5 +173,77 @@
   .fanclub-comparison-scroll {
     scrollbar-color: rgba(112, 112, 112, 0.3) #F7F6F3;
     scrollbar-width: thin;
+  }
+}
+
+/* FanClubComparisonSection: PC表示で画面幅を縮めたとき、テーブル全体を縮小（1440px以上で有効・1024-1439pxは外側pc-layout-scalerで対応） */
+@media (min-width: 1440px) {
+  .fanclub-comparison-table-scaler {
+    width: calc(968px * min(1, (100vw - 472px) / 968)) !important;
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .fanclub-comparison-table-scaler table {
+    transform: scale(min(1, (100vw - 472px) / 968));
+    transform-origin: top center;
+    /* スケール後もレイアウト幅が視覚幅と一致するよう負マージンで詰める */
+    margin-left: calc(-968px * (1 - min(1, (100vw - 472px) / 968)) / 2);
+    margin-right: calc(-968px * (1 - min(1, (100vw - 472px) / 968)) / 2);
+  }
+}
+
+/* ShiroseFanClubSection: PC表示で画面幅を縮めたとき、article全体をそのまま縮小（1440px以上で有効） */
+@media (min-width: 1440px) {
+  .shirose-fanclub-article-scaler {
+    --shirose-article-scale: min(1, (100vw - 472px) / 968);
+    width: calc(968px * var(--shirose-article-scale));
+    height: calc(588px * var(--shirose-article-scale));
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+  .shirose-fanclub-article-scaler .shirose-fanclub-article {
+    transform: scale(var(--shirose-article-scale));
+    transform-origin: top center;
+    margin-left: calc(-968px * (1 - var(--shirose-article-scale)) / 2);
+    margin-right: calc(-968px * (1 - var(--shirose-article-scale)) / 2);
+    margin-bottom: calc(-588px * (1 - var(--shirose-article-scale)));
+  }
+}
+
+/* MembershipBenefitsSection: PC表示で横2列のとき、画面幅を縮めたらarticle+特典内容を余白保って縮小（1440px以上で有効） */
+@media (min-width: 1440px) {
+  .membership-benefits-scaler {
+    width: calc(968px * min(1, (100vw - 492px) / 968)) !important;
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .membership-benefits-scaler-inner {
+    width: 968px !important;
+    flex-shrink: 0;
+    transform: scale(min(1, (100vw - 492px) / 968));
+    transform-origin: top center;
+    margin-left: calc(-968px * (1 - min(1, (100vw - 492px) / 968)) / 2);
+    margin-right: calc(-968px * (1 - min(1, (100vw - 492px) / 968)) / 2);
+  }
+}
+
+/* MembershipPlansSection: PC表示で横2列のとき、MembershipBenefitsSectionと同じ縮小表示（1440px以上で有効） */
+@media (min-width: 1440px) {
+  .membership-plans-scaler {
+    width: calc(968px * min(1, (100vw - 492px) / 968)) !important;
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .membership-plans-scaler-inner {
+    width: 968px !important;
+    flex-shrink: 0;
+    transform: scale(min(1, (100vw - 492px) / 968));
+    transform-origin: top center;
+    margin-left: calc(-968px * (1 - min(1, (100vw - 492px) / 968)) / 2);
+    margin-right: calc(-968px * (1 - min(1, (100vw - 492px) / 968)) / 2);
   }
 }

@@ -20,64 +20,15 @@ export const MembershipBenefitsSection = (): JSX.Element => {
     "スケジュール共有",
   ];
 
-  const decorativeIcons = [
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/dish-17040887-2-1.svg",
-      alt: "Dish",
-      top: "89.18%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/sofa-2337972-2.svg",
-      alt: "Sofa",
-      top: "0",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/plants-2338011-1.svg",
-      alt: "Plants",
-      top: "44.37%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/table-lamp-6480817-1.svg",
-      alt: "Table lamp",
-      top: "22.21%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/sofa-2338077-1.svg",
-      alt: "Sofa",
-      top: "66.58%",
-    },
-  ];
-
-  const decorativeIconsSecond = [
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/dish-17040887-2-2.svg",
-      alt: "Dish",
-      top: "89.18%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/sofa-2337972-3.svg",
-      alt: "Sofa",
-      top: "0",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/plants-2338011-2.svg",
-      alt: "Plants",
-      top: "44.37%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/table-lamp-6480817-2.svg",
-      alt: "Table lamp",
-      top: "22.21%",
-    },
-    {
-      src: "https://c.animaapp.com/h73j2KJP/img/sofa-2338077-2.svg",
-      alt: "Sofa",
-      top: "66.58%",
-    },
-  ];
-
   return (
     <section className="flex flex-col items-center gap-8 lg:gap-12 pt-8 lg:pt-16 pb-0 px-4 lg:px-[246px] relative self-stretch w-full flex-[0_0_auto]">
+      {/* 左端に配置するアイコン（余白なし） */}
+      <img
+        src="/img/left-icon-pc.svg"
+        alt=""
+        className="absolute top-16 left-0 w-[73px] h-auto"
+        aria-hidden="true"
+      />
       <header className="flex flex-col w-[548px] items-center gap-0 relative flex-[0_0_auto]">
         <div className="flex self-stretch w-full flex-col items-center justify-center gap-4 relative flex-[0_0_auto]">
           <div className="inline-flex flex-col h-[86px] items-center justify-center gap-2 lg:gap-3 relative">
@@ -166,15 +117,16 @@ export const MembershipBenefitsSection = (): JSX.Element => {
           ))}
         </div>
 
-        <div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-10 relative self-stretch w-full flex-[0_0_auto]">
-          <article className="flex flex-col w-full max-w-[464px] lg:w-[464px] items-center gap-6 pt-0 pb-6 px-4 lg:px-0 relative overflow-hidden rounded-[20px_20px_0px_0px] border-4 border-solid border-main" style={{ backgroundColor: "#F7F6F3" }}>
+        <div className="membership-benefits-scaler w-full flex justify-center lg:min-w-0">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-10 relative self-stretch w-full flex-[0_0_auto] membership-benefits-scaler-inner">
+          <article className="flex flex-col w-full max-w-[464px] lg:flex-1 lg:min-w-0 lg:max-w-[464px] items-center gap-6 pt-0 pb-6 px-4 lg:px-0 mx-6 lg:mx-0 relative overflow-hidden rounded-[20px_20px_0px_0px] border-4 border-solid border-main bg-[#F7F6F3]" style={{ backgroundColor: "#F7F6F3" }}>
             <div className="flex items-center justify-center gap-2.5 p-4 relative self-stretch w-[calc(100%+32px)] lg:w-full flex-[0_0_auto] bg-main rounded-[16px_16px_0px_0px] -mx-4 lg:mx-0">
               <h3 className="w-fit mt-[-1.00px] font-extrabold text-white text-[24px] lg:text-[32px] text-center leading-[38.4px] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
                 アプリファンクラブ
               </h3>
             </div>
 
-            <div className="flex flex-col w-full lg:w-[calc(100%-32px)] items-start gap-6 relative flex-[0_0_auto]">
+            <div className="flex flex-col w-full max-w-[424px] lg:max-w-none lg:w-[calc(100%-32px)] mx-auto lg:mx-auto items-center lg:items-center gap-6 relative flex-[0_0_auto]">
               <figure className="flex flex-col w-full aspect-[3/2] lg:w-[396px] lg:h-[264px] lg:aspect-auto items-start justify-end gap-2.5 relative overflow-hidden rounded-none" style={{ backgroundColor: "#F7F6F3" }}>
                 <img
                   src="/img/web-fanclub-pc@2x.png"
@@ -184,14 +136,14 @@ export const MembershipBenefitsSection = (): JSX.Element => {
               </figure>
 
               <div className="inline-flex items-end gap-6 relative flex-[0_0_auto] w-full lg:w-auto">
-                <div className="inline-flex flex-col items-start gap-6 relative flex-[0_0_auto] w-fit lg:w-auto">
-                  <div className="flex flex-col w-fit max-w-full lg:w-[282px] items-start gap-3 relative flex-[0_0_auto]">
-                    <h4 className="relative self-stretch mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-text text-[14px] lg:text-[18px] tracking-[0] leading-[18px]">
+                <div className="inline-flex flex-col items-start gap-6 relative flex-[0_0_auto] w-[216px] lg:w-auto">
+                  <div className="flex flex-col w-full max-w-full lg:w-[282px] items-start gap-3 relative flex-[0_0_auto]">
+                    <h4 className="relative self-stretch mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-text text-[14px] lg:text-[18px] tracking-[0] leading-[18px] whitespace-nowrap">
                       WHITE JAM HOUSE プライベート
                     </h4>
 
                     <p className="w-fit lg:self-stretch font-bold text-text text-[12px] lg:text-[14px] text-justify leading-[19.6px] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
-                      配信多めで、メンバーのプライベートが見れる
+                      <span className="whitespace-nowrap">配信多めで、メンバーのプライベートが見れる</span>
                       <br />
                       ファンクラブです
                     </p>
@@ -253,7 +205,7 @@ export const MembershipBenefitsSection = (): JSX.Element => {
             </div>
           </article>
 
-          <div className="flex flex-col w-full max-w-[464px] items-center gap-[19px] relative">
+          <div className="flex flex-col w-full max-w-[464px] lg:flex-1 lg:min-w-0 lg:max-w-[464px] items-center gap-[19px] relative mx-6 px-4 lg:mx-0 lg:px-0">
             <h3 className="relative self-stretch mt-[-1.00px] font-bold text-text text-[24px] lg:text-[32px] leading-8 [font-family:'Noto_Sans_JP',Helvetica] text-center tracking-[0]">
               特典内容
             </h3>
@@ -302,44 +254,7 @@ export const MembershipBenefitsSection = (): JSX.Element => {
             </ul>
           </div>
         </div>
-      </div>
-
-      <div
-        className="flex flex-col w-[76px] items-start gap-16 absolute top-16 left-[1344px]"
-        aria-hidden="true"
-      >
-        <div className="relative self-stretch w-full h-[676.18px]">
-          {decorativeIcons.map((icon, index) => (
-            <img
-              key={index}
-              className={`absolute w-[84.41%] h-[9.46%] ${index === 0 ? "left-0" : index === 1 ? "left-[2.90%]" : index === 2 ? "left-0" : index === 3 ? "left-[2.18%]" : "left-0"}`}
-              style={{ top: icon.top }}
-              alt=""
-              src={icon.src}
-            />
-          ))}
         </div>
-
-        <div className="relative self-stretch w-full h-[676.18px]">
-          {decorativeIconsSecond.map((icon, index) => (
-            <img
-              key={index}
-              className={`absolute w-[84.41%] h-[9.46%] ${index === 0 ? "left-0" : index === 1 ? "left-[2.90%]" : index === 2 ? "left-0" : index === 3 ? "left-[2.18%]" : "left-0"}`}
-              style={{ top: icon.top }}
-              alt=""
-              src={icon.src}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div
-        className="flex flex-col w-[73px] items-start gap-16 absolute top-16 left-5"
-        aria-hidden="true"
-      >
-        <div className="relative self-stretch w-full h-[673.42px] bg-[url(https://c.animaapp.com/h73j2KJP/img/group-13-2.png)] bg-[100%_100%]" />
-
-        <div className="relative self-stretch w-full h-[673.42px] bg-[url(https://c.animaapp.com/h73j2KJP/img/group-13-3.png)] bg-[100%_100%]" />
       </div>
     </section>
   );
