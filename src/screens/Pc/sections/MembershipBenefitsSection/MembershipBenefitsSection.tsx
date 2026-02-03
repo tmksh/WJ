@@ -81,7 +81,7 @@ export const MembershipBenefitsSection = (): JSX.Element => {
         </div>
       </header>
 
-      <div className="flex flex-col w-full max-w-[968px] items-center gap-8 lg:gap-14 relative flex-[0_0_auto] mx-0 lg:ml-[-10.00px] lg:mr-[-10.00px]">
+      <div className="flex flex-col w-full max-w-[968px] lg:min-w-0 items-center gap-8 lg:gap-14 relative flex-[0_0_auto] mx-0 lg:ml-[-10.00px] lg:mr-[-10.00px]">
         <div className="flex flex-col w-fit items-start gap-4 relative flex-[0_0_auto]">
           {pricingOptions.map((option, index) => (
             <div
@@ -101,11 +101,11 @@ export const MembershipBenefitsSection = (): JSX.Element => {
           ))}
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 relative self-stretch w-full max-w-[464px] lg:max-w-none flex-[0_0_auto] mx-auto lg:mx-0">
+        <div className="membership-buttons-row flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 relative self-stretch w-full max-w-[464px] lg:max-w-none lg:min-w-0 flex-[0_0_auto] lg:flex-[0_1_auto] mx-auto lg:mx-0">
           {membershipButtons.map((button, index) => (
             <button
               key={index}
-              className="w-full lg:max-w-[296px] lg:w-[296px] lg:flex-shrink-0 bg-main flex flex-col h-[58px] items-center justify-center gap-[5px] px-[82px] py-2 relative rounded-[1000px] shadow-PC cursor-pointer hover:opacity-90 transition-opacity"
+              className="w-full lg:w-[296px] lg:flex-shrink-0 lg:max-w-[296px] bg-main flex flex-col h-[58px] items-center justify-center gap-[5px] px-[82px] py-2 relative rounded-[1000px] shadow-PC cursor-pointer hover:opacity-90 transition-opacity"
               aria-label={`${button.title}${button.subtitle ? ` ${button.subtitle}` : ""}`}
             >
               <span
@@ -123,17 +123,17 @@ export const MembershipBenefitsSection = (): JSX.Element => {
           ))}
         </div>
 
-        <div className="membership-benefits-scaler w-full flex justify-center lg:min-w-0">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-10 relative self-stretch w-full flex-[0_0_auto] membership-benefits-scaler-inner">
-          <article className="flex flex-col w-full max-w-[464px] lg:flex-1 lg:min-w-0 lg:max-w-[464px] items-center gap-6 pt-0 pb-6 px-4 lg:px-0 mx-6 lg:mx-0 relative overflow-hidden rounded-[20px_20px_0px_0px] border-4 border-solid border-main bg-[#F7F6F3]" style={{ backgroundColor: "#F7F6F3" }}>
-            <div className="flex items-center justify-center gap-2.5 p-4 relative self-stretch w-[calc(100%+32px)] lg:w-full flex-[0_0_auto] bg-main rounded-[16px_16px_0px_0px] -mx-4 lg:mx-0">
-              <h3 className="w-fit mt-[-1.00px] font-extrabold text-white text-[24px] lg:text-[32px] text-center leading-[38.4px] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
+        <div className="membership-benefits-scaler w-full flex justify-center lg:min-w-0 lg:w-full">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-10 relative self-stretch w-full flex-[0_0_auto] lg:flex-1 lg:min-w-0 membership-benefits-scaler-inner">
+          <article className="flex flex-col w-full max-w-[464px] lg:flex-1 lg:min-w-0 lg:max-w-full items-center gap-6 pt-0 pb-6 px-4 lg:px-0 mx-6 lg:mx-0 relative overflow-hidden rounded-[20px_20px_0px_0px] border-4 border-solid border-main bg-[#F7F6F3]" style={{ backgroundColor: "#F7F6F3" }}>
+            <div className="benefit-card-header flex items-center justify-center gap-2.5 p-4 relative self-stretch w-[calc(100%+32px)] lg:w-full lg:min-w-0 flex-[0_0_auto] bg-main rounded-[16px_16px_0px_0px] -mx-4 lg:mx-0">
+              <h3 className="benefit-card-title w-fit mt-[-1.00px] font-extrabold text-white text-[24px] lg:text-[32px] text-center leading-[38.4px] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
                 アプリファンクラブ
               </h3>
             </div>
 
-            <div className="flex flex-col w-full max-w-[424px] lg:max-w-none lg:w-[calc(100%-32px)] mx-auto lg:mx-auto items-center lg:items-center gap-6 relative flex-[0_0_auto]">
-              <figure className="flex flex-col w-full aspect-[3/2] lg:w-[396px] lg:h-[264px] lg:aspect-auto items-start justify-end gap-2.5 relative overflow-hidden rounded-none" style={{ backgroundColor: "#F7F6F3" }}>
+            <div className="benefit-card-content flex flex-col w-full max-w-[424px] lg:max-w-none lg:w-[min(396px,calc(100%-32px))] lg:min-w-0 mx-auto lg:mx-auto items-center lg:items-center gap-6 relative flex-[0_0_auto]">
+              <figure className="flex flex-col w-full aspect-[3/2] lg:w-full lg:max-w-[396px] lg:min-w-0 lg:aspect-[3/2] lg:h-auto items-start justify-end gap-2.5 relative overflow-hidden rounded-none" style={{ backgroundColor: "#F7F6F3" }}>
                 <img
                   src="/img/web-fanclub-pc@2x.png"
                   alt="アプリファンクラブの様子"
@@ -141,21 +141,22 @@ export const MembershipBenefitsSection = (): JSX.Element => {
                 />
               </figure>
 
-              <div className="inline-flex items-end gap-6 relative flex-[0_0_auto] w-full lg:w-auto">
-                <div className="inline-flex flex-col items-start gap-6 relative flex-[0_0_auto] w-[216px] lg:w-auto">
-                  <div className="flex flex-col w-full max-w-full lg:w-[282px] items-start gap-3 relative flex-[0_0_auto]">
-                    <h4 className="relative self-stretch mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-text text-[14px] lg:text-[18px] tracking-[0] leading-[18px] whitespace-nowrap">
+              <div className="inline-flex items-end gap-6 relative flex-[0_0_auto] w-full lg:w-full lg:min-w-0 lg:flex-wrap lg:gap-4 lg:justify-center">
+                <div className="inline-flex flex-col items-start gap-6 relative flex-[0_0_auto] w-[216px] lg:flex-[0_1_auto] lg:min-w-0 lg:max-w-full">
+                  <div className="flex flex-col w-full max-w-full lg:w-full lg:max-w-full lg:min-w-0 items-start gap-3 relative flex-[0_0_auto]">
+                    <h4 className="benefit-h4-one-line relative self-stretch mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-text text-[14px] lg:text-[18px] tracking-[0] leading-[18px] whitespace-nowrap lg:whitespace-normal">
                       WHITE JAM HOUSE プライベート
                     </h4>
 
-                    <p className="w-fit lg:self-stretch font-bold text-text text-[12px] lg:text-[14px] text-justify leading-[19.6px] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
-                      <span className="whitespace-nowrap">配信多めで、メンバーのプライベートが見れる</span>
-                      <br />
+                    <p className="w-fit lg:self-stretch lg:min-w-0 font-bold text-text text-[12px] lg:text-[14px] text-justify leading-[19.6px] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
+                      <span className="whitespace-nowrap lg:whitespace-normal">配信多めで、メンバーのプライベートが見れる</span>
+                      <span className="hidden lg:inline"> </span>
+                      <br className="lg:hidden" />
                       ファンクラブです
                     </p>
                   </div>
 
-                  <div className="flex flex-col w-[216px] items-start gap-[18px] relative flex-[0_0_auto]">
+                  <div className="flex flex-col w-[216px] lg:max-w-[216px] lg:w-full lg:min-w-0 items-start gap-[18px] relative flex-[0_0_auto]">
                     <div className="inline-flex items-center gap-3 relative flex-[0_0_auto]">
                       <div className="inline-flex items-center justify-center gap-2.5 px-2.5 py-1 relative flex-[0_0_auto] border border-solid border-text">
                         <span className="w-fit mt-[-1.00px] font-semibold text-text text-[13px] lg:text-[16px] text-center leading-4 whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
@@ -182,7 +183,7 @@ export const MembershipBenefitsSection = (): JSX.Element => {
                   </div>
                 </div>
 
-                <div className="flex flex-col w-[70px] items-center gap-0.5 relative ml-auto lg:ml-0">
+                <div className="click-center-when-wrapped flex flex-col w-[70px] lg:flex-shrink-0 items-center gap-0.5 relative ml-auto lg:ml-auto">
                   <div className="inline-flex items-center gap-1 relative flex-[0_0_auto]">
                     <img
                       className="relative w-[6.89px] h-[12.45px] object-cover"
@@ -201,9 +202,9 @@ export const MembershipBenefitsSection = (): JSX.Element => {
                     />
                   </div>
 
-                  <div className="group relative w-[70px] cursor-pointer">
+                  <div className="door-hover-group group relative w-[70px] cursor-pointer">
                     <img
-                      className="relative w-[70px] h-auto object-contain block transition-opacity duration-200 group-hover:opacity-0"
+                      className="door-default-img relative w-[70px] h-auto object-contain block opacity-100"
                       alt="Click to join"
                       src="https://c.animaapp.com/h73j2KJP/img/group-6@2x.png"
                     />
@@ -211,14 +212,14 @@ export const MembershipBenefitsSection = (): JSX.Element => {
                     <img
                       src="/img/door-pink-sp.svg"
                       alt="入会する"
-                      className="absolute inset-0 w-[70px] h-auto m-auto object-contain opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 lg:hidden"
+                      className="door-overlay-img absolute inset-0 w-[70px] h-auto m-auto object-contain opacity-0 lg:hidden"
                       aria-hidden="true"
                     />
                     {/* ホバー時: PC用ドア */}
                     <img
                       src="/img/door-pink-pc.svg"
                       alt="入会する"
-                      className="absolute inset-0 w-[70px] h-auto m-auto object-contain opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 hidden lg:block"
+                      className="door-overlay-img absolute inset-0 w-[70px] h-auto m-auto object-contain opacity-0 hidden lg:block"
                       aria-hidden="true"
                     />
                   </div>
@@ -259,12 +260,21 @@ export const MembershipBenefitsSection = (): JSX.Element => {
                   </div>
 
                   <div className="flex w-fit lg:w-56 items-center justify-center gap-2.5 pl-3 lg:pl-0 pr-3 py-0 relative self-center lg:self-auto mx-auto lg:mx-0">
-                    <p className="relative w-fit lg:flex-1 mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-semibold text-text text-[10px] tracking-[0] leading-[13.0px]">
+                    {/* SP: 全項目を1列で表示 */}
+                    <p className="relative w-fit lg:flex-1 mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-semibold text-text text-[10px] tracking-[0] leading-[13.0px] lg:hidden">
                       （第1水曜）GASHIMA ルーム・ラジオ
                       <br />
                       （第2水曜）NIKKI ルーム・生配信
                       <br />
                       （第3水曜）SHIROSE ルーム・ダイアリー
+                      <br />
+                      （第4水曜）WHITE JAM ルーム・生配信
+                      <br />
+                      <span className="inline-block pl-[9.5ch]">※WEB会員はアーカイブのみ</span>
+                    </p>
+                    {/* PC: 右列は第2・第4水曜と注釈のみ（第1・第3は左列に表示） */}
+                    <p className="relative w-fit lg:flex-1 mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-semibold text-text text-[10px] tracking-[0] leading-[13.0px] hidden lg:block">
+                      （第2水曜）NIKKI ルーム・生配信
                       <br />
                       （第4水曜）WHITE JAM ルーム・生配信
                       <br />

@@ -50,7 +50,7 @@ export const FanClubOverviewSection = (): JSX.Element => {
       </header>
 
       <div className="flex flex-col lg:flex-row items-center justify-between lg:justify-start gap-0 lg:gap-0 relative self-stretch w-[calc(100%+32px)] -mx-4 lg:mx-0 lg:w-full min-w-0 flex-[0_0_auto]">
-        <article className="flex flex-col w-full max-w-none lg:max-w-none lg:w-1/2 lg:min-w-0 lg:flex-shrink-0 lg:h-[756px] items-center gap-6 lg:gap-8 px-4 lg:px-[84px] py-10 relative bg-main">
+        <article className="flex flex-col w-full max-w-none lg:max-w-none lg:w-1/2 lg:min-w-0 lg:flex-shrink-0 lg:h-[756px] items-center gap-6 lg:gap-8 px-4 lg:p-[40px] py-10 relative bg-main">
           <img
             className="relative w-[463px] h-[514.11px] -my-5 lg:my-0 object-contain"
             alt="ファンクラブ会員特典イラスト"
@@ -64,24 +64,24 @@ export const FanClubOverviewSection = (): JSX.Element => {
             </p>
 
             <nav
-              className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-6 relative self-stretch w-full flex-[0_0_auto]"
+              className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-4 lg:min-w-0 relative self-stretch w-full flex-[0_0_auto]"
               aria-label="入会方法選択"
             >
               {membershipButtons.map((button, index) => (
                 <button
                   key={index}
-                  className="all-[unset] box-border w-full lg:w-[168px] bg-white flex flex-col h-[58px] items-center justify-center gap-[5px] px-[82px] py-2 relative rounded-[1000px] shadow-PC cursor-pointer hover:opacity-90 transition-opacity"
+                  className="all-[unset] box-border w-full lg:min-w-[100px] lg:flex-1 lg:max-w-[168px] bg-white flex flex-col h-[58px] items-center justify-center gap-[5px] px-4 lg:px-2 py-2 relative rounded-[1000px] shadow-PC cursor-pointer hover:opacity-90 transition-opacity"
                   type="button"
                   aria-label={`${button.label}${button.sublabel ? ` ${button.sublabel}` : ""}`}
                 >
                   <span
-                    className={`w-fit ${index === 0 ? "ml-[-48.00px] mr-[-48.00px]" : index === 1 ? "ml-[-52.00px] mr-[-52.00px]" : "ml-[-61.00px] mr-[-61.00px]"} font-extrabold text-main text-lg text-center leading-[18px] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]`}
+                    className={`w-fit ${index === 0 ? "ml-[-48.00px] mr-[-48.00px] lg:ml-0 lg:mr-0" : index === 1 ? "ml-[-52.00px] mr-[-52.00px] lg:ml-0 lg:mr-0" : "ml-[-61.00px] mr-[-61.00px] lg:ml-0 lg:mr-0"} font-extrabold text-main text-lg text-center leading-[18px] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]`}
                   >
                     {button.label}
                   </span>
 
                   {button.sublabel && (
-                    <span className="relative w-fit ml-[-32.00px] mr-[-32.00px] [font-family:'Noto_Sans_JP',Helvetica] font-bold text-main text-[10px] text-center tracking-[0] leading-[10px] whitespace-nowrap">
+                    <span className="relative w-fit ml-[-32.00px] mr-[-32.00px] lg:ml-0 lg:mr-0 [font-family:'Noto_Sans_JP',Helvetica] font-bold text-main text-[10px] text-center tracking-[0] leading-[10px] whitespace-nowrap">
                       {button.sublabel}
                     </span>
                   )}
@@ -91,7 +91,7 @@ export const FanClubOverviewSection = (): JSX.Element => {
           </div>
         </article>
 
-        <article className="flex flex-col w-full max-w-none lg:max-w-none lg:w-1/2 lg:min-w-0 lg:flex-shrink-0 min-h-[400px] lg:h-[756px] items-center gap-6 lg:gap-8 px-4 lg:px-[84px] py-10 relative bg-light-blue">
+        <article className="flex flex-col w-full max-w-none lg:max-w-none lg:w-1/2 lg:min-w-0 lg:flex-shrink-0 min-h-[400px] lg:h-[756px] items-center gap-6 lg:gap-8 px-4 lg:p-[40px] py-10 relative bg-light-blue">
           <img
             className="relative w-full max-w-[463px] h-[514px] -my-5 lg:my-0 object-contain"
             alt="ファンクラブ+プラス会員特典イラスト"

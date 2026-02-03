@@ -162,21 +162,95 @@
   }
 }
 
-/* PCレイアウト(1024px〜): デザイン幅1440pxを縮小表示。1440px未満では幅に収めて右側が見切れないように */
+/* PCレイアウト(1024px〜): 可変幅。SPは従来どおり。 */
 @media (min-width: 1024px) {
   .pc-layout-scaler-wrapper {
-    width: min(1440px, 100vw);
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
     overflow: hidden;
     position: relative;
   }
   .pc-layout-scaler {
-    --pc-layout-scale: min(1, 100vw / 1440);
-    width: 1440px;
-    transform-origin: top left;
-    transform: scale(var(--pc-layout-scale));
+    width: 100%;
   }
+}
+
+/* MembershipBenefitsSection: PC時、コンテンツ幅396px以上でh4を1行、未満で2行（画像幅を超えない） */
+.benefit-card-content {
+  container-type: inline-size;
+}
+
+/* PC時のみ: カードヘッダー幅が狭いときh3を少し小さくして1行に収める（SPは変更なし） */
+.benefit-card-header {
+  container-type: inline-size;
+  container-name: card-header;
+}
+@media (min-width: 1024px) {
+  @container card-header (max-width: 420px) {
+    .benefit-card-header .benefit-card-title {
+      font-size: 28px;
+      line-height: 33.6px;
+    }
+  }
+  @container card-header (max-width: 360px) {
+    .benefit-card-header .benefit-card-title {
+      font-size: 24px;
+      line-height: 28.8px;
+    }
+  }
+  /* フォールバック: ビューポート幅でフォント縮小（コンテナクエリが効かない環境でもはみ出し防止） */
+  @media (max-width: 1200px) {
+    .benefit-card-header .benefit-card-title {
+      font-size: 28px;
+      line-height: 33.6px;
+    }
+  }
+  @media (max-width: 1100px) {
+    .benefit-card-header .benefit-card-title {
+      font-size: 24px;
+      line-height: 28.8px;
+    }
+  }
+}
+@container (min-width: 396px) {
+  .benefit-h4-one-line {
+    white-space: nowrap;
+  }
+}
+/* 2段表示時（コンテンツ幅が狭い時）CLICKを画像幅の中央に */
+@container (max-width: 343px) {
+  .click-center-when-wrapped {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* MembershipBenefitsSection: PC時、3ボタンが横に収まらないとき縦3つに切り替え（ボタン幅296px維持） */
+.membership-buttons-row {
+  container-type: inline-size;
+  container-name: membership-buttons;
+}
+@media (min-width: 1024px) {
+  @container membership-buttons (max-width: 920px) {
+    .membership-buttons-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+/* CLICK ドアのホバーオーバーレイ（Tailwind group-hover の確実な適用のため） */
+.door-hover-group .door-default-img {
+  transition: opacity 0.2s;
+}
+.door-hover-group:hover .door-default-img {
+  opacity: 0;
+}
+.door-hover-group .door-overlay-img {
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.door-hover-group:hover .door-overlay-img {
+  opacity: 1;
 }
 
 /* FanClubComparisonSection: SP時のスクロールバー背景を #F7F6F3 に */

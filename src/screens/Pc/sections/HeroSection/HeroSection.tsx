@@ -118,7 +118,7 @@ export const HeroSection = (): JSX.Element => {
       <img
         src="/img/logo-whitetjam.png"
         alt="WHITE JAM"
-        className="absolute top-0 left-0 lg:top-4 lg:left-auto lg:right-[1365px] h-10 lg:h-[58px] w-auto object-contain"
+        className="absolute top-0 left-0 lg:fixed lg:top-4 lg:left-[max(1rem,calc((100vw-1440px)/2))] lg:right-auto h-10 lg:h-[58px] w-auto object-contain z-10"
         aria-hidden="false"
       />
 
