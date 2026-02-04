@@ -118,12 +118,12 @@ export const HeroSection = (): JSX.Element => {
       <img
         src="/img/logo-whitetjam.png"
         alt="WHITE JAM"
-        className="absolute top-0 left-0 lg:fixed lg:top-4 lg:left-[max(1rem,5vw)] lg:right-auto h-10 lg:h-[58px] w-auto object-contain z-10"
+        className="absolute top-0 left-0 lg:fixed lg:top-4 lg:left-[max(1rem,5vw)] lg:right-auto h-10 lg:h-[58px] w-auto object-contain z-50"
         aria-hidden="false"
       />
 
       <nav
-        className="inline-flex items-center gap-2 lg:gap-4 fixed top-4 right-4 left-auto z-10 lg:right-[max(1rem,5vw)]"
+        className="inline-flex items-center gap-2 lg:gap-4 fixed top-4 right-4 left-auto z-50 lg:right-[max(1rem,5vw)]"
         aria-label="Language selection"
       >
         {languageOptions.map((language) => (
