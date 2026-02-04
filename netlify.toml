@@ -1,0 +1,10 @@
+# Netlify ビルド設定（GitHub連携時）
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA用：すべてのパスを index.html にフォールバック
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
