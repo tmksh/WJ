@@ -99,7 +99,7 @@ export const MembershipPlansSection = (): JSX.Element => {
               aria-label={`${button.title}${button.subtitle ? ` ${button.subtitle}` : ""}`}
             >
               <span
-                className="ml-[-18.00px] mr-[-18.00px] leading-6 relative w-fit [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-main text-[16px] lg:text-[24px] text-center tracking-[0] whitespace-nowrap"
+                className="ml-[-18.00px] mr-[-18.00px] leading-6 relative w-fit [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-main text-[18px] lg:text-[24px] text-center tracking-[0] whitespace-nowrap"
               >
                 {button.title}
               </span>

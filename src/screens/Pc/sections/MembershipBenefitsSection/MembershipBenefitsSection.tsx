@@ -109,7 +109,7 @@ export const MembershipBenefitsSection = (): JSX.Element => {
               aria-label={`${button.title}${button.subtitle ? ` ${button.subtitle}` : ""}`}
             >
               <span
-                className={`${index === 0 ? "relative w-fit ml-[-0.50px] mr-[-0.50px]" : index === 1 ? "ml-[-6.00px] mr-[-6.00px] leading-6 relative w-fit" : "ml-[-18.00px] mr-[-18.00px] leading-6 relative w-fit"} [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-light-blue text-2xl text-center tracking-[0] ${index === 0 ? "leading-6" : ""} whitespace-nowrap`}
+                className={`${index === 0 ? "relative w-fit ml-[-0.50px] mr-[-0.50px]" : index === 1 ? "ml-[-6.00px] mr-[-6.00px] leading-6 lg:leading-6 relative w-fit" : "ml-[-18.00px] mr-[-18.00px] leading-6 lg:leading-6 relative w-fit"} [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-light-blue text-[18px] lg:text-2xl text-center tracking-[0] ${index === 0 ? "leading-6 lg:leading-6" : ""} whitespace-nowrap`}
               >
                 {button.title}
               </span>

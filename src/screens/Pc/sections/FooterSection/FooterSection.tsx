@@ -30,7 +30,7 @@ export const FooterSection = (): JSX.Element => {
         {copyrightTexts.map((text, index) => (
           <p
             key={index}
-            className="relative w-fit mt-[-1.00px] [font-family:'Poppins',Helvetica] font-normal text-text text-[10px] text-center tracking-[0] leading-[10px] lg:whitespace-nowrap"
+            className="relative w-fit mt-[-1.00px] [font-family:'Poppins',Helvetica] font-normal text-text text-[10px] text-center tracking-[0] leading-[1.5] lg:leading-[10px] lg:whitespace-nowrap"
           >
             {text}
           </p>

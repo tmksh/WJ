@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* SP時のみ: 言語ナビラッパー右余白（PCではリセット） */
+.nav-lang-wrapper-sp-padding {
+  padding-right: 16px;
+}
+@media (min-width: 1024px) {
+  .nav-lang-wrapper-sp-padding {
+    padding-right: 0;
+  }
+}
+
 /* PC時: フッター下の余白をなくす（html/body/#app をコンテンツ高に。左右アイコンはラッパーでフッター下でクリップ） */
 @media (min-width: 1024px) {
   html,

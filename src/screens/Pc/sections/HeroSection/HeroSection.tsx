@@ -20,9 +20,9 @@ export const HeroSection = (): JSX.Element => {
       aria-label="Hero section"
     >
       <div className="absolute top-0 left-0 bg-grey-1 w-full h-full min-h-[100dvh] lg:w-full lg:max-w-[100vw] lg:h-[min(768px,100vh)] lg:max-h-[100vh]">
-        {/* SP: ロゴの下からコンテンツ開始、FVを1画面に収めて表示 */}
-        <div className="flex flex-col items-center justify-center lg:hidden w-full h-full min-h-[100dvh] pt-4 px-4 pb-4 box-border">
-          <div className="flex flex-col items-center justify-center gap-4 w-full max-w-[min(360px,calc(100vw-32px))] h-full max-h-[calc(100dvh-32px)] min-h-0 overflow-hidden mx-auto">
+        {/* SP: ロゴ・ナビと区別しやすく上余白を多めに、FVを1画面に収めて表示 */}
+        <div className="flex flex-col items-center justify-center lg:hidden w-full h-full min-h-[100dvh] pt-14 px-4 pb-4 box-border">
+          <div className="flex flex-col items-center justify-center gap-4 w-full max-w-[min(360px,calc(100vw-32px))] h-full max-h-[calc(100dvh-72px)] min-h-0 overflow-hidden mx-auto">
             <div className="flex flex-col items-center justify-center gap-3 w-full min-w-0 min-h-0 flex-1 overflow-hidden animate-hero-fade-up">
               <div className="flex-shrink-0 flex items-center justify-center min-h-0">
                 <img
@@ -115,17 +115,20 @@ export const HeroSection = (): JSX.Element => {
         </div>
       </div>
 
+      {/* SP: 上・左に16px余白 / PC: 従来どおり */}
       <img
         src="/img/logo-whitetjam.png"
         alt="WHITE JAM"
-        className="absolute top-0 left-0 lg:fixed lg:top-4 lg:left-[max(1rem,5vw)] lg:right-auto h-10 lg:h-[58px] w-auto object-contain z-50"
+        className="absolute top-4 left-4 lg:fixed lg:top-4 lg:left-[max(1rem,5vw)] lg:right-auto h-10 lg:h-[58px] w-auto object-contain z-50"
         aria-hidden="false"
       />
 
-      <nav
-        className="inline-flex items-center gap-2 lg:gap-4 fixed top-4 right-4 left-auto z-50 lg:right-[max(1rem,5vw)]"
-        aria-label="Language selection"
-      >
+      {/* SP: ラッパーに right:0 + padding-right:16px で右余白を保証 / PC: 従来どおり */}
+      <div className="nav-lang-wrapper-sp-padding fixed top-4 right-0 z-50 lg:right-[max(1rem,5vw)]">
+        <nav
+          className="inline-flex items-center gap-2 lg:gap-4"
+          aria-label="Language selection"
+        >
         {languageOptions.map((language) => (
           <button
             key={language.id}
@@ -147,7 +150,8 @@ export const HeroSection = (): JSX.Element => {
             </div>
           </button>
         ))}
-      </nav>
+        </nav>
+      </div>
     </section>
   );
 };
