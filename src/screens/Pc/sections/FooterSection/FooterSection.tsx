@@ -5,7 +5,7 @@ export const FooterSection = (): JSX.Element => {
   ];
 
   return (
-    <footer className="flex flex-col items-center gap-6 px-4 lg:px-[120px] py-8 lg:py-10 relative self-stretch w-full flex-[0_0_auto] overflow-visible">
+    <footer className="flex flex-col items-center gap-6 px-4 lg:px-[max(1rem,8.5vw)] py-8 lg:py-10 relative self-stretch w-full flex-[0_0_auto] overflow-visible">
       <div className="flex flex-col w-[130px] items-center gap-1.5 relative flex-[0_0_auto]">
         <img
           className="w-20 h-[68px] relative aspect-[1.19] object-cover"

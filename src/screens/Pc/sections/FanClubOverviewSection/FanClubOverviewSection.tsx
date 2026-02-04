@@ -50,7 +50,7 @@ export const FanClubOverviewSection = (): JSX.Element => {
       </header>
 
       <div className="flex flex-col lg:flex-row items-center justify-between lg:justify-start gap-0 lg:gap-0 relative self-stretch w-[calc(100%+32px)] -mx-4 lg:mx-0 lg:w-full min-w-0 flex-[0_0_auto]">
-        <article className="flex flex-col w-full max-w-none lg:max-w-none lg:w-1/2 lg:min-w-0 lg:flex-shrink-0 lg:h-[756px] items-center gap-6 lg:gap-8 px-4 lg:p-[40px] py-10 relative bg-main">
+        <article className="flex flex-col w-full max-w-none lg:max-w-none lg:w-1/2 lg:min-w-0 lg:flex-shrink-0 lg:h-[756px] items-center gap-6 lg:gap-8 px-4 lg:p-[max(1rem,2.8vw)] py-10 relative bg-main">
           <img
             className="relative w-[463px] h-[514.11px] -my-5 lg:my-0 object-contain"
             alt="ファンクラブ会員特典イラスト"
@@ -91,7 +91,7 @@ export const FanClubOverviewSection = (): JSX.Element => {
           </div>
         </article>
 
-        <article className="flex flex-col w-full max-w-none lg:max-w-none lg:w-1/2 lg:min-w-0 lg:flex-shrink-0 min-h-[400px] lg:h-[756px] items-center gap-6 lg:gap-8 px-4 lg:p-[40px] py-10 relative bg-light-blue">
+        <article className="flex flex-col w-full max-w-none lg:max-w-none lg:w-1/2 lg:min-w-0 lg:flex-shrink-0 min-h-[400px] lg:h-[756px] items-center gap-6 lg:gap-8 px-4 lg:p-[max(1rem,2.8vw)] py-10 relative bg-light-blue">
           <img
             className="relative w-full max-w-[463px] h-[514px] -my-5 lg:my-0 object-contain"
             alt="ファンクラブ+プラス会員特典イラスト"

@@ -148,7 +148,7 @@ export const FanClubComparisonSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="flex flex-col items-center gap-8 lg:gap-12 pt-8 lg:pt-20 pb-0 px-4 lg:px-[236px] relative self-stretch w-full flex-[0_0_auto]">
+    <section className="flex flex-col items-center gap-8 lg:gap-12 pt-8 lg:pt-20 pb-0 px-4 lg:px-[max(1rem,16.5vw)] relative self-stretch w-full flex-[0_0_auto]">
       <header className="inline-flex flex-col items-center justify-center gap-4 relative z-10 flex-[0_0_auto]">
         <div className="inline-flex flex-col items-center justify-center gap-3 relative flex-[0_0_auto]">
           <h2 className="relative w-fit mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-text text-[22px] lg:text-[36px] text-center tracking-[0] leading-[1.2] whitespace-nowrap">
@@ -158,12 +158,18 @@ export const FanClubComparisonSection = (): JSX.Element => {
       </header>
 
       <div className="flex flex-col items-start lg:items-center gap-10 relative z-10 self-stretch w-full flex-[0_0_auto]">
-        <div ref={scrollContainerRef} className="fanclub-comparison-scroll w-full overflow-x-auto lg:overflow-visible pb-[10px] lg:pb-0">
+        <div ref={scrollContainerRef} className="fanclub-comparison-scroll w-full overflow-x-auto pb-[10px] lg:pb-0">
         <div className="w-max min-w-full lg:w-full lg:flex lg:justify-center lg:min-w-0 lg:text-center">
-        <div className="fanclub-comparison-table-scaler flex justify-start lg:justify-center w-full lg:w-auto lg:min-w-0 lg:mx-auto lg:inline-block">
-          <table className="items-end self-stretch w-[780px] lg:w-[968px] min-w-0 flex-[0_0_auto] border-2 border-solid border-text flex flex-col relative mx-0 lg:mx-auto bg-[#F7F6F3]">
+        <div className="fanclub-comparison-table-scaler flex justify-start lg:justify-center w-full lg:max-w-[67vw] lg:w-full lg:min-w-0 lg:mx-auto lg:inline-block">
+          <table className="fanclub-comparison-table items-end self-stretch w-[780px] lg:w-[968px] lg:min-w-[968px] min-w-0 flex-[0_0_auto] border-2 border-solid border-text flex flex-col relative mx-0 lg:mx-auto bg-[#F7F6F3]">
+          <colgroup>
+            <col className="fanclub-comparison-col-1" />
+            <col className="fanclub-comparison-col-2" />
+            <col className="fanclub-comparison-col-3" />
+            <col className="fanclub-comparison-col-4" />
+          </colgroup>
           <thead className="inline-flex items-center relative flex-[0_0_auto]">
-            <tr className="inline-flex items-center relative flex-[0_0_auto] w-full">
+            <tr className="inline-flex items-center relative flex-[0_0_auto] w-full min-w-[780px] lg:min-w-[968px]">
               <th className="flex w-[90px] lg:w-[116px] h-[70px] lg:h-[76px] flex-shrink-0 items-center justify-center relative border-transparent bg-transparent" aria-hidden="true">
                 {/* 行ラベル列と幅を揃える空セル */}
               </th>
@@ -195,7 +201,7 @@ export const FanClubComparisonSection = (): JSX.Element => {
             {comparisonData.map((row, rowIndex) => (
               <tr
                 key={rowIndex}
-                className="flex items-center relative self-stretch w-full flex-[0_0_auto]"
+                className="flex items-center relative self-stretch w-full min-w-[780px] lg:min-w-[968px] flex-[0_0_auto]"
               >
                 <th
                   scope="row"

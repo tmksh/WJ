@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* PC時: フッター下の余白をなくす（html/body/#app をコンテンツ高に。左右アイコンはラッパーでフッター下でクリップ） */
+@media (min-width: 1024px) {
+  html,
+  body {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  #app,
+  #app > div {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+}
+
 @layer base {
   button,
   input,
@@ -162,17 +176,7 @@
   }
 }
 
-/* PCレイアウト(1024px〜): 可変幅。SPは従来どおり。 */
-@media (min-width: 1024px) {
-  .pc-layout-scaler-wrapper {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-  }
-  .pc-layout-scaler {
-    width: 100%;
-  }
-}
+/* PCレイアウト(1024px〜): スケールは使わず %/vw ベースの可変幅。SPは変更なし。 */
 
 /* MembershipBenefitsSection: PC時、コンテンツ幅396px以上でh4を1行、未満で2行（画像幅を超えない） */
 .benefit-card-content {
@@ -224,17 +228,25 @@
   }
 }
 
-/* MembershipBenefitsSection: PC時、3ボタンが横に収まらないとき縦3つに切り替え（ボタン幅296px維持） */
+/* MembershipBenefitsSection: PC時、3ボタンが横に収まらないとき縦3つに切り替え */
 .membership-buttons-row {
   container-type: inline-size;
   container-name: membership-buttons;
 }
+/* コンテナ幅が狭いとき縦並び（ボタン幅296pxはそのまま） */
 @media (min-width: 1024px) {
-  @container membership-buttons (max-width: 920px) {
+  @container membership-buttons (max-width: 960px) {
     .membership-buttons-row {
-      flex-direction: column;
+      flex-direction: column !important;
       align-items: center;
     }
+  }
+}
+/* フォールバック: ビューポートが狭いPCでは縦並び（ボタン幅は変えない） */
+@media (min-width: 1024px) and (max-width: 1400px) {
+  .membership-buttons-row {
+    flex-direction: column !important;
+    align-items: center;
   }
 }
 
@@ -251,6 +263,34 @@
 }
 .door-hover-group:hover .door-overlay-img {
   opacity: 1;
+}
+
+/* FanClubComparisonSection: PC時 thead と tbody の列ずれ防止（標準テーブル＋table-layout:fixed） */
+@media (min-width: 1024px) {
+  .fanclub-comparison-table {
+    display: table !important;
+    table-layout: fixed;
+    width: 968px !important;
+  }
+  .fanclub-comparison-table thead {
+    display: table-header-group !important;
+  }
+  .fanclub-comparison-table tbody {
+    display: table-row-group !important;
+  }
+  .fanclub-comparison-table tr {
+    display: table-row !important;
+  }
+  .fanclub-comparison-table th,
+  .fanclub-comparison-table td {
+    display: table-cell !important;
+    box-sizing: border-box;
+    vertical-align: middle;
+  }
+  .fanclub-comparison-table .fanclub-comparison-col-1 { width: 116px; }
+  .fanclub-comparison-table .fanclub-comparison-col-2 { width: 284px; }
+  .fanclub-comparison-table .fanclub-comparison-col-3 { width: 284px; }
+  .fanclub-comparison-table .fanclub-comparison-col-4 { width: 284px; }
 }
 
 /* FanClubComparisonSection: SP時のスクロールバー背景を #F7F6F3 に */

@@ -16,10 +16,10 @@ export const HeroSection = (): JSX.Element => {
 
   return (
     <section
-      className="relative w-full min-h-[100dvh] lg:min-h-0 lg:w-[1438px] lg:h-[min(768px,100vh)] lg:max-h-[100vh] lg:overflow-hidden lg:mx-auto mb-[56px]"
+      className="relative w-full min-h-[100dvh] lg:min-h-0 lg:w-full lg:max-w-[100vw] lg:h-[min(768px,100vh)] lg:max-h-[100vh] lg:overflow-hidden lg:mx-auto mb-[56px]"
       aria-label="Hero section"
     >
-      <div className="absolute top-0 left-0 bg-grey-1 w-full h-full min-h-[100dvh] lg:w-[1438px] lg:h-[min(768px,100vh)] lg:max-h-[100vh]">
+      <div className="absolute top-0 left-0 bg-grey-1 w-full h-full min-h-[100dvh] lg:w-full lg:max-w-[100vw] lg:h-[min(768px,100vh)] lg:max-h-[100vh]">
         {/* SP: ロゴの下からコンテンツ開始、FVを1画面に収めて表示 */}
         <div className="flex flex-col items-center justify-center lg:hidden w-full h-full min-h-[100dvh] pt-4 px-4 pb-4 box-border">
           <div className="flex flex-col items-center justify-center gap-4 w-full max-w-[min(360px,calc(100vw-32px))] h-full max-h-[calc(100dvh-32px)] min-h-0 overflow-hidden mx-auto">
@@ -67,15 +67,15 @@ export const HeroSection = (): JSX.Element => {
             </div>
           </div>
         </div>
-        {/* PC: キービジュアル（余白を確保して途切れないよう少し縮小） */}
+        {/* PC: キービジュアル（ビューポート幅に合わせて % 配置） */}
         <img
-          className="hidden lg:block absolute top-[194px] left-[669px] w-[540px] h-[540px] object-contain animate-hero-fade-up"
+          className="hidden lg:block absolute top-[194px] left-[46.5%] -translate-x-1/2 w-[37.5vw] max-w-[540px] h-auto aspect-square object-contain animate-hero-fade-up"
           alt="White House Jam promotional image"
           src="https://c.animaapp.com/h73j2KJP/img/img.png"
         />
 
         {/* PC: タイトルブロック */}
-        <div className="hidden lg:flex flex-col w-full max-w-[420px] lg:w-[420px] items-center gap-4 lg:gap-[26px] absolute top-[204px] left-[189px] px-4 animate-hero-fade-up">
+        <div className="hidden lg:flex flex-col w-full max-w-[29vw] lg:min-w-0 items-center gap-4 lg:gap-[26px] absolute top-[204px] left-[13%] px-4 animate-hero-fade-up">
           <img
             className="self-stretch w-[261px] max-w-full relative aspect-[1.19] object-cover mx-auto"
             alt="White House official logo"
@@ -97,17 +97,17 @@ export const HeroSection = (): JSX.Element => {
 
         {/* PC: バッジ */}
         <div
-          className="hidden lg:block absolute top-[152px] left-[1076px] w-[177px] h-[129px] animate-hero-fade-up-delayed"
+          className="hidden lg:block absolute top-[152px] left-[74.5%] w-[12.3vw] max-w-[177px] aspect-[177/129] animate-hero-fade-up-delayed"
           role="img"
           aria-label="Recruitment badge"
         >
           <img
-            className="absolute -top-0.5 -left-0.5 w-[187px] h-[141px]"
+            className="absolute -top-0.5 -left-0.5 w-full h-full max-w-[187px] max-h-[141px] object-contain"
             alt=""
             src="https://c.animaapp.com/h73j2KJP/img/vector-1.svg"
             aria-hidden="true"
           />
-          <div className="absolute top-6 left-[21px] rotate-[10.97deg] font-extrabold text-main text-[34px] leading-[34.3px] [font-family:'Noto_Sans_JP',Helvetica] text-center tracking-[0]">
+          <div className="absolute top-[22%] left-[12%] rotate-[10.97deg] font-extrabold text-main text-[clamp(14px,2.4vw,34px)] leading-[1.01] [font-family:'Noto_Sans_JP',Helvetica] text-center tracking-[0]">
             会員
             <br />
             募集中!!
@@ -118,12 +118,12 @@ export const HeroSection = (): JSX.Element => {
       <img
         src="/img/logo-whitetjam.png"
         alt="WHITE JAM"
-        className="absolute top-0 left-0 lg:fixed lg:top-4 lg:left-[max(1rem,calc((100vw-1440px)/2))] lg:right-auto h-10 lg:h-[58px] w-auto object-contain z-10"
+        className="absolute top-0 left-0 lg:fixed lg:top-4 lg:left-[max(1rem,5vw)] lg:right-auto h-10 lg:h-[58px] w-auto object-contain z-10"
         aria-hidden="false"
       />
 
       <nav
-        className="inline-flex items-center gap-2 lg:gap-4 fixed top-4 right-4 left-auto z-10 lg:right-[max(1rem,calc((100vw-1440px)/2))]"
+        className="inline-flex items-center gap-2 lg:gap-4 fixed top-4 right-4 left-auto z-10 lg:right-[max(1rem,5vw)]"
         aria-label="Language selection"
       >
         {languageOptions.map((language) => (

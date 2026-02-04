@@ -21,7 +21,7 @@ export const MembershipBenefitsSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="flex flex-col items-center gap-8 lg:gap-12 pt-8 lg:pt-16 pb-0 px-4 lg:px-[246px] relative self-stretch w-full flex-[0_0_auto]">
+    <section className="flex flex-col items-center gap-8 lg:gap-12 pt-8 lg:pt-16 pb-0 px-4 lg:px-[max(1rem,17vw)] relative self-stretch w-full flex-[0_0_auto]">
       {/* 左端に配置するアイコン（SP: 左アイコン SP、PC: 左アイコン PCで1440px前後同じ表示） */}
       <img
         src="/img/left-icon-sp.svg"
@@ -81,7 +81,7 @@ export const MembershipBenefitsSection = (): JSX.Element => {
         </div>
       </header>
 
-      <div className="flex flex-col w-full max-w-[968px] lg:min-w-0 items-center gap-8 lg:gap-14 relative flex-[0_0_auto] mx-0 lg:ml-[-10.00px] lg:mr-[-10.00px]">
+      <div className="flex flex-col w-full max-w-[968px] lg:max-w-[67vw] lg:min-w-0 items-center gap-8 lg:gap-14 relative flex-[0_0_auto] mx-0 lg:ml-[-10.00px] lg:mr-[-10.00px]">
         <div className="flex flex-col w-fit items-start gap-4 relative flex-[0_0_auto]">
           {pricingOptions.map((option, index) => (
             <div
@@ -105,7 +105,7 @@ export const MembershipBenefitsSection = (): JSX.Element => {
           {membershipButtons.map((button, index) => (
             <button
               key={index}
-              className="w-full lg:w-[296px] lg:flex-shrink-0 lg:max-w-[296px] bg-main flex flex-col h-[58px] items-center justify-center gap-[5px] px-[82px] py-2 relative rounded-[1000px] shadow-PC cursor-pointer hover:opacity-90 transition-opacity"
+              className="membership-btn-pc w-full lg:w-[296px] lg:flex-shrink-0 lg:max-w-[296px] bg-main flex flex-col h-[58px] items-center justify-center gap-[5px] px-4 lg:px-[82px] py-2 relative rounded-[1000px] shadow-PC cursor-pointer hover:opacity-90 transition-opacity"
               aria-label={`${button.title}${button.subtitle ? ` ${button.subtitle}` : ""}`}
             >
               <span
