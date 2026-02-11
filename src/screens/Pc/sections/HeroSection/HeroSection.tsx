@@ -50,9 +50,9 @@ export const HeroSection = (): JSX.Element => {
       aria-label="Hero section"
     >
       <div className="absolute top-0 left-0 bg-grey-1 w-full h-full min-h-[100dvh] lg:w-full lg:max-w-[100vw] lg:h-[min(768px,100vh)] lg:max-h-[100vh]">
-        {/* SP: ロゴの下からコンテンツ開始、FVを1画面に収めて表示 */}
-        <div className="flex flex-col items-center justify-center lg:hidden w-full h-full min-h-[100dvh] pt-4 px-4 pb-4 box-border">
-          <div className="flex flex-col items-center justify-center gap-4 w-full max-w-[min(360px,calc(100vw-32px))] h-full max-h-[calc(100dvh-32px)] min-h-0 overflow-hidden mx-auto">
+        {/* SP: ロゴ・ナビと区別しやすく上余白を多めに、FVを1画面に収めて表示 */}
+        <div className="flex flex-col items-center justify-center lg:hidden w-full h-full min-h-[100dvh] pt-14 px-4 pb-4 box-border">
+          <div className="flex flex-col items-center justify-center gap-4 w-full max-w-[min(360px,calc(100vw-32px))] h-full max-h-[calc(100dvh-72px)] min-h-0 overflow-hidden mx-auto">
             <div className="flex flex-col items-center justify-center gap-3 w-full min-w-0 min-h-0 flex-1 overflow-hidden animate-hero-fade-up">
               <div className="flex-shrink-0 flex items-center justify-center min-h-0">
                 <img
@@ -161,6 +161,7 @@ export const HeroSection = (): JSX.Element => {
         </div>
       </div>
 
+      {/* SP: 上・左に16px余白 / PC: 従来どおり */}
       <img
         src="/img/logo-whitetjam.png"
         alt={t("logo_alt")}
