@@ -1,3 +1,4 @@
+import { useLanguage } from "../../contexts/LanguageContext";
 import { FanClubComparisonSection } from "./sections/FanClubComparisonSection";
 import { FanClubOverviewSection } from "./sections/FanClubOverviewSection";
 import { FooterSection } from "./sections/FooterSection";
@@ -7,6 +8,8 @@ import { MembershipPlansSection } from "./sections/MembershipPlansSection";
 import { ShiroseFanClubSection } from "./sections/ShiroseFanClubSection";
 
 export const Pc = (): JSX.Element => {
+  const { t } = useLanguage();
+
   return (
     <div
       className="bg-grey-1 overflow-x-hidden overflow-y-auto w-full min-w-0 min-h-screen lg:min-h-0 lg:max-h-none lg:min-w-[1024px] lg:w-full relative"
@@ -15,7 +18,8 @@ export const Pc = (): JSX.Element => {
       {/* SP時のみ表示（PC時はHeroSection内のロゴ1つのみ） */}
       <img
         className="absolute top-4 left-4 w-[60px] h-auto aspect-[1.19] object-cover lg:hidden"
-        alt="White House Logo"
+        alt={t("logo_alt")}
+        data-i18n="logo_alt"
         src="https://c.animaapp.com/h73j2KJP/img/250529-white-house-logo@2x.png"
       />
 

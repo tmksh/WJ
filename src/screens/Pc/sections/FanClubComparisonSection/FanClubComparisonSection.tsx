@@ -1,7 +1,9 @@
 import { useRef, useEffect } from "react";
+import { useLanguage } from "../../../../contexts/LanguageContext";
 
 export const FanClubComparisonSection = (): JSX.Element => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const { language, t } = useLanguage();
 
   useEffect(() => {
     const el = scrollContainerRef.current;
@@ -12,137 +14,83 @@ export const FanClubComparisonSection = (): JSX.Element => {
         el.scrollLeft = maxScroll / 2;
       }
     };
-    const t = requestAnimationFrame(() => {
+    const rafId = requestAnimationFrame(() => {
       requestAnimationFrame(centerScroll);
     });
     const ro = new ResizeObserver(centerScroll);
     ro.observe(el);
     return () => {
-      cancelAnimationFrame(t);
+      cancelAnimationFrame(rafId);
       ro.disconnect();
     };
   }, []);
 
   const comparisonData = [
     {
-      rowLabel: "入会時",
+      rowLabelKey: "comparison_on_join" as const,
       bgClass:
         "bg-[linear-gradient(0deg,rgba(112,112,112,0.05)_0%,rgba(112,112,112,0.05)_100%),linear-gradient(0deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0)_100%)] bg-grey-2",
       borderClass: "border-grey-1",
       cells: [
-        {
-          title: "住民カード",
-          subtitle: "（デジタル）",
-        },
-        {
-          title: "住民カード",
-          subtitle: "（実物）",
-        },
-        {
-          title: "バスタオル",
-          subtitle: null,
-        },
+        { titleKey: "comparison_resident_digital" as const, subtitleKey: "comparison_resident_sub" as const },
+        { titleKey: "comparison_resident_digital" as const, subtitleKey: "comparison_resident_real" as const },
+        { titleKey: "comparison_towel" as const, subtitleKey: null },
       ],
     },
     {
-      rowLabel: "更新\n（1年毎）",
+      rowLabelKey: "comparison_renew" as const,
       bgClass: "",
       borderClass: "border-[#7070701a]",
       cells: [
-        {
-          title: "アクリルキーホルダー",
-          subtitle: "(アプリファンクラブ限定デザイン)",
-        },
-        {
-          title: "アクリルキーホルダー",
-          subtitle: "(Webファンクラブ限定デザイン)",
-        },
-        {
-          title: "1年記念日",
-          subtitle: null,
-        },
+        { titleKey: "comparison_acrylic_app" as const, subtitleKey: "comparison_acrylic_app_sub" as const },
+        { titleKey: "comparison_acrylic_app" as const, subtitleKey: "comparison_acrylic_web" as const },
+        { titleKey: "comparison_1y_anniversary" as const, subtitleKey: null },
       ],
     },
     {
-      rowLabel: "継続\n1年",
+      rowLabelKey: "comparison_1y" as const,
       bgClass:
         "bg-[linear-gradient(0deg,rgba(112,112,112,0.05)_0%,rgba(112,112,112,0.05)_100%),linear-gradient(0deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0)_100%)] bg-grey-2",
       borderClass: "border-grey-1",
       height: "h-[107px]",
       cells: [
-        {
-          title: null,
-          subtitle: null,
-        },
-        {
-          title: "住⺠カード\nイエローデザイン",
-          subtitle: "（デジタル）",
-        },
-        {
-          title: "2年記念日",
-          subtitle: null,
-        },
+        { titleKey: null, subtitleKey: null },
+        { titleKey: "comparison_yellow_card" as const, subtitleKey: "comparison_resident_sub" as const },
+        { titleKey: "comparison_2y_anniversary" as const, subtitleKey: null },
       ],
     },
     {
-      rowLabel: "継続\n3年",
+      rowLabelKey: "comparison_3y" as const,
       bgClass: "",
       borderClass: "border-[#7070701a]",
       height: "h-[107px]",
       cells: [
-        {
-          title: null,
-          subtitle: null,
-        },
-        {
-          title: "住⺠カード\nピンクデザイン",
-          subtitle: "（デジタル）",
-        },
-        {
-          title: "3年記念日",
-          subtitle: null,
-        },
+        { titleKey: null, subtitleKey: null },
+        { titleKey: "comparison_pink_card" as const, subtitleKey: "comparison_resident_sub" as const },
+        { titleKey: "comparison_3y_anniversary" as const, subtitleKey: null },
       ],
     },
     {
-      rowLabel: "継続\n5年",
+      rowLabelKey: "comparison_5y" as const,
       bgClass:
         "bg-[linear-gradient(0deg,rgba(112,112,112,0.05)_0%,rgba(112,112,112,0.05)_100%),linear-gradient(0deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0)_100%)] bg-grey-2",
       borderClass: "border-grey-1",
       height: "h-[107px]",
       cells: [
-        {
-          title: null,
-          subtitle: null,
-        },
-        {
-          title: "住⺠カード\nブルーデザイン",
-          subtitle: "（デジタル）",
-        },
-        {
-          title: "5年記念日",
-          subtitle: null,
-        },
+        { titleKey: null, subtitleKey: null },
+        { titleKey: "comparison_blue_card" as const, subtitleKey: "comparison_resident_sub" as const },
+        { titleKey: "comparison_5y_anniversary" as const, subtitleKey: null },
       ],
     },
     {
-      rowLabel: "継続\n10年",
+      rowLabelKey: "comparison_10y" as const,
       bgClass: "",
       borderClass: "border-[#7070701a]",
       height: "h-[107px]",
       cells: [
-        {
-          title: null,
-          subtitle: null,
-        },
-        {
-          title: "住⺠カード\nゴールドデザイン",
-          subtitle: "（デジタル）",
-        },
-        {
-          title: "10年記念日",
-          subtitle: null,
-        },
+        { titleKey: null, subtitleKey: null },
+        { titleKey: "comparison_gold_card" as const, subtitleKey: "comparison_resident_sub" as const },
+        { titleKey: "comparison_10y_anniversary" as const, subtitleKey: null },
       ],
     },
   ];
@@ -151,8 +99,8 @@ export const FanClubComparisonSection = (): JSX.Element => {
     <section className="flex flex-col items-center gap-8 lg:gap-12 pt-8 lg:pt-20 pb-0 px-4 lg:px-[max(1rem,16.5vw)] relative self-stretch w-full flex-[0_0_auto]">
       <header className="inline-flex flex-col items-center justify-center gap-4 relative z-10 flex-[0_0_auto]">
         <div className="inline-flex flex-col items-center justify-center gap-3 relative flex-[0_0_auto]">
-          <h2 className="relative w-fit mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-text text-[22px] lg:text-[36px] text-center tracking-[0] leading-[1.2] whitespace-nowrap">
-            入会特典・継続特典
+          <h2 className="relative w-fit mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-extrabold text-text text-[22px] lg:text-[36px] text-center tracking-[0] leading-[1.2] whitespace-nowrap" data-i18n="comparison_title">
+            {t("comparison_title")}
           </h2>
         </div>
       </header>
@@ -174,24 +122,20 @@ export const FanClubComparisonSection = (): JSX.Element => {
                 {/* 行ラベル列と幅を揃える空セル */}
               </th>
               <th className="flex w-[230px] min-w-[230px] lg:w-[284px] lg:min-w-[284px] flex-shrink-0 h-[70px] lg:h-[76px] items-center justify-center gap-1 lg:gap-2.5 px-3 py-2 lg:p-4 relative bg-main box-border">
-                <span className="w-fit mt-[-1.00px] font-black text-white text-sm lg:text-lg text-center leading-[1.2] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
-                  ファンクラブ
-                  <br />
-                  ホワイトジャムハウス
+                <span className="w-fit mt-[-1.00px] font-black text-white text-sm lg:text-lg text-center leading-[1.2] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]" style={{ whiteSpace: "pre-line" }} data-i18n="comparison_fanclub_wh">
+                  {t("comparison_fanclub_wh")}
                 </span>
               </th>
 
               <th className="flex w-[230px] min-w-[230px] lg:w-[284px] lg:min-w-[284px] flex-shrink-0 h-[70px] lg:h-[76px] items-center justify-center gap-1 lg:gap-2.5 px-3 py-2 lg:p-4 relative bg-light-blue border-l [border-left-style:solid] border-grey-1 box-border">
-                <span className="w-fit font-black text-white text-sm lg:text-lg text-center leading-[1.2] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
-                  ファンクラブ+プラス
+                <span className="w-fit font-black text-white text-sm lg:text-lg text-center leading-[1.2] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]" data-i18n="comparison_plus">
+                  {t("comparison_plus")}
                 </span>
               </th>
 
               <th className="flex w-[230px] min-w-[230px] lg:w-[284px] lg:min-w-[284px] flex-shrink-0 h-[70px] lg:h-[76px] items-center justify-center gap-1 lg:gap-2.5 px-3 py-2 lg:p-4 relative bg-[linear-gradient(180deg,rgba(176,123,11,1)_0%,rgba(255,230,145,1)_53%,rgba(176,123,11,0.69)_97%)] box-border">
-                <span className="relative w-fit mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-black text-black-000 text-sm lg:text-lg text-center tracking-[0] leading-[1.2]">
-                  SHIROSE
-                  <br />
-                  ファンクラブ プリンセス
+                <span className="relative w-fit mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-black text-black-000 text-sm lg:text-lg text-center tracking-[0] leading-[1.2]" style={{ whiteSpace: "pre-line" }} data-i18n="comparison_shirose">
+                  {t("comparison_shirose")}
                 </span>
               </th>
             </tr>
@@ -210,33 +154,63 @@ export const FanClubComparisonSection = (): JSX.Element => {
                   <span
                     className="w-fit font-bold text-text text-sm lg:text-lg text-center leading-[1.2] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]"
                     style={{ whiteSpace: "pre-line" }}
+                    data-i18n={row.rowLabelKey}
                   >
-                    {row.rowLabel}
+                    {t(row.rowLabelKey)}
                   </span>
                 </th>
 
-                {row.cells.map((cell, cellIndex) => (
+                {row.cells.map((cell, cellIndex) => {
+                  const isEnAcrylic =
+                    language === "en" &&
+                    cell.titleKey === "comparison_acrylic_app" &&
+                    cell.subtitleKey != null;
+                  const enTwoLineText =
+                    isEnAcrylic && cell.subtitleKey
+                      ? `${t(cell.titleKey)}\n${t(cell.subtitleKey)}`
+                      : null;
+                  return (
                   <td
                     key={cellIndex}
                     className={`${row.height ? "h-[99px] lg:h-[107px]" : "h-[77px] lg:h-[83px]"} ${row.borderClass} ${row.bgClass} flex flex-col w-[230px] min-w-[230px] lg:w-[284px] lg:min-w-[284px] flex-shrink-0 items-center justify-center gap-1 lg:gap-2 px-3 py-2 lg:p-4 relative border-l [border-left-style:solid] box-border`}
                   >
-                    {cell.title && (
+                    {enTwoLineText != null ? (
                       <span
                         className="w-full max-w-full mt-[-1.00px] font-bold text-text text-base lg:text-xl text-center leading-[1.2] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0] break-words"
-                        style={{
-                          whiteSpace: (cell.subtitle && !cell.title?.includes("\n")) ? "nowrap" : "pre-line",
-                        }}
+                        style={{ whiteSpace: "pre-line" }}
+                        data-i18n={cell.titleKey}
                       >
-                        {cell.title}
+                        {enTwoLineText}
                       </span>
-                    )}
-                    {cell.subtitle && (
-                      <span className="w-fit font-medium text-text text-xs lg:text-base text-center leading-[1.2] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
-                        {cell.subtitle}
-                      </span>
+                    ) : (
+                      <>
+                        {cell.titleKey && (
+                          <span
+                            className="w-full max-w-full mt-[-1.00px] font-bold text-text text-base lg:text-xl text-center leading-[1.2] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0] break-words"
+                            style={{
+                              whiteSpace:
+                                language === "en" &&
+                                (cell.titleKey === "comparison_towel" || cell.titleKey === "comparison_1y_anniversary")
+                                  ? "nowrap"
+                                  : cell.subtitleKey && !t(cell.titleKey).includes("\n")
+                                    ? "nowrap"
+                                    : "pre-line",
+                            }}
+                            data-i18n={cell.titleKey}
+                          >
+                            {t(cell.titleKey)}
+                          </span>
+                        )}
+                        {cell.subtitleKey && (
+                          <span className="w-fit font-medium text-text text-xs lg:text-base text-center leading-[1.2] whitespace-nowrap relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]" data-i18n={cell.subtitleKey}>
+                            {t(cell.subtitleKey)}
+                          </span>
+                        )}
+                      </>
                     )}
                   </td>
-                ))}
+                  );
+                })}
               </tr>
             ))}
           </tbody>
@@ -246,14 +220,12 @@ export const FanClubComparisonSection = (): JSX.Element => {
         </div>
 
         <div className="flex flex-col items-center gap-4 relative self-stretch w-full flex-[0_0_auto]">
-          <h3 className="relative self-stretch mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-black text-text text-base lg:text-lg text-center tracking-[0] leading-[28.8px]">
-            【Webファンクラブ】の入会特典について
+          <h3 className="relative self-stretch mt-[-1.00px] [font-family:'Noto_Sans_JP',Helvetica] font-black text-text text-base lg:text-lg text-center tracking-[0] leading-[28.8px]" data-i18n="comparison_web_note_title">
+            {t("comparison_web_note_title")}
           </h3>
 
-          <p className="self-stretch font-medium text-text text-sm lg:text-lg text-justify leading-[22px] lg:leading-[28.8px] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]">
-            入会時【住民カード（実物）】と、更新（一年毎）【アクリルキーホルダー(Webファンクラブ限定デザイン)】のお届けは、年会費コースのみが対象となります。月額コースは対象外となります。
-            <br />
-            住⺠カード（デジタル）については、年会費コース/月額コースの全てが対象となります。
+          <p className="self-stretch font-medium text-text text-sm lg:text-lg text-justify leading-[22px] lg:leading-[28.8px] relative [font-family:'Noto_Sans_JP',Helvetica] tracking-[0]" style={{ whiteSpace: "pre-line" }} data-i18n="comparison_web_note_body">
+            {t("comparison_web_note_body")}
           </p>
         </div>
       </div>
